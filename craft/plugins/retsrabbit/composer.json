@@ -1,0 +1,11 @@
+{
+	"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Anecka/rets-rabbit-plugin-core"
+        }
+    ],	
+    "require": {
+    	"rets-rabbit/cms-plugin-core": "dev-master"
+    }
+}
