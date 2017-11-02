@@ -1,0 +1,19 @@
+{% import "_includes/forms" as Forms %}
+
+{{ Forms.textField({
+	label: 'Client ID'|t,
+	id: 'client_id',
+	name: 'clientId',
+	instructions: 'Enter your Client ID from your Rets Rabbit dashboard',
+	value: settings.clientId,
+	errors: settings.getErrors('clientId')
+}) }}
+
+{{ Forms.textField({
+	label: 'Client Secret'|t,
+	id: 'client_secret',
+	name: 'clientSecret',
+	instructions: 'Enter your Client Secret from your Rets Rabbit dashboard',
+	value: settings.clientSecret,
+	errors: settings.getErrors('clientSecret')
+}) }}
