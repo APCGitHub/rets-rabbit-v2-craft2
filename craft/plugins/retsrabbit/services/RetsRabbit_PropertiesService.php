@@ -51,9 +51,9 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 	 * @param  string
 	 * @return array
 	 */
-	public function find($id = '')
+	public function find($id = '', $params = array())
 	{
-		$res = $this->resource->single($id);
+		$res = $this->resource->single($id, $params);
 
 		return $res;
 	}
