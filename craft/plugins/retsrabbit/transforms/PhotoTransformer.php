@@ -8,6 +8,6 @@ class PhotoTransformer extends TransformerAbstract
 {
 	public function transform($photo = array())
 	{
-		return $photo
+		return $photo;
 	}
 }
