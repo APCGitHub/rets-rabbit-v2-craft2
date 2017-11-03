@@ -54,6 +54,10 @@ class EEBridge implements iCmsBridge
      */
     public function getAccessToken()
     {
+        if(is_null($this->tokenFetcher)) {
+            throw new \Exception("You have not set the token fetcher yet.");
+        }
+        
         $fetcher = $this->tokenFetcher;
         $token = $fetcher();
 

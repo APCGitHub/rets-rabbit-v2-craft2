@@ -62,6 +62,11 @@ class CraftBridge implements iCmsBridge
      */
     public function getAccessToken()
     {
+        if(is_null($this->tokenFetcher)) {
+            throw new \Exception("You have not set the token fetcher yet.");
+        }
+
+        $callable = $this->tokenFetcher;
         $token = $callable();
 
         return $token;

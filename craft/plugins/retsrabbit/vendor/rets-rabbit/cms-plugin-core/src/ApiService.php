@@ -34,7 +34,7 @@ class ApiService
      *
      * @var string
      */
-    private $apiOauthEndpoint = 'api/oauth/access_token';
+    private $apiOauthEndpoint = 'oauth/access_token';
 
     /**
      * Built API endpoint.
