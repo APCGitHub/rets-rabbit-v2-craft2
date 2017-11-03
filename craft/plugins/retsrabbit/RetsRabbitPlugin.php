@@ -46,7 +46,7 @@ class RetsRabbitPlugin extends BasePlugin
 		$valid = craft()->retsRabbit_tokens->isValid();
 
 		if(!$valid) {
-			craft()->retsRabbit_tokens->refreshToken();
+			craft()->retsRabbit_tokens->refresh();
 		}
 	}
 }

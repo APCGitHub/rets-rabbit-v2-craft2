@@ -24,6 +24,7 @@ class RetsRabbit_TokensService extends BaseApplicationComponent
 	{
 		$bridge = new CraftBridge;
 		$this->api = new ApiService($bridge);
+		$this->api->overrideBaseApiEndpoint('https://stage.retsrabbit.com');
 		$this->settings = craft()->plugins->getPlugin('retsRabbit')->getSettings();
 	}
 
@@ -32,7 +33,7 @@ class RetsRabbit_TokensService extends BaseApplicationComponent
 	 * 
 	 * @return mixed|null
 	 */
-	public function refreshToken()
+	public function refresh()
 	{
 		$token = null;
 
