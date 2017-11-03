@@ -5,32 +5,16 @@ namespace Craft;
 class RetsRabbitVariable
 {
 	/**
-	 * @param  array
-	 * @return array
+	 * Call the resource variables
+	 * 
+	 * @param  $name string
+	 * @param  $arguments array
+	 * @return object
 	 */
-	public function properties($params = array())
+	public function __call($name, $arguments)
 	{
-		if(is_null($params) || empty($params)) {
-			throw new \Exception("You must pass in an associative array of params.");
-		}
+		$className = "Craft\RetsRabbit_" . ucfirst($name) . "Variable";
 
-		$results = craft()->retsRabbit_properties->search($params);
-
-		return $results;
-	}
-
-	/**
-	 * @param  string
-	 * @return array
-	 */
-	public function property($id = '')
-	{
-		if(is_null($id) || empty($id)) {
-			throw new \Exception("You must pass in a valid listing ID");
-		}
-
-		$listing = craft()->retsRabbit_properties->find($id);
-
-		return $listing;
+		return (class_exists($className)) ? new $className() : null;
 	}
 }
