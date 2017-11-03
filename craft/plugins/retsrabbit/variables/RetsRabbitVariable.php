@@ -10,7 +10,7 @@ class RetsRabbitVariable
 	 */
 	public function properties($params = array())
 	{
-		if(is_null($id) || empty($params)) {
+		if(is_null($params) || empty($params)) {
 			throw new \Exception("You must pass in an associative array of params.");
 		}
 
