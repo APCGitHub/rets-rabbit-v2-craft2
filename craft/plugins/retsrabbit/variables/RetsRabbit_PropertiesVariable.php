@@ -44,11 +44,11 @@ class RetsRabbit_PropertiesVariable
 
 		//See if fetching from cache
 		if($useCache) {
-			$results = craft()->retsRabbit_cache->get($cacheKey);
+			$data = craft()->retsRabbit_cache->get($cacheKey);
 		}
 
 		//Check if any result pulled from cache
-		if(is_null($results)) {
+		if(is_null($data) || empty($data)) {
 			$res = craft()->retsRabbit_properties->find($id);
 
 			if(!$res->didSucceed()) {
@@ -82,12 +82,12 @@ class RetsRabbit_PropertiesVariable
 		$error = false;
 
 		//See if fetching from cache
-		if($this->useCache($cacheSettings)) {
-			$results = craft()->retsRabbit_cache->get($cacheKey);
+		if($useCache) {
+			$data = craft()->retsRabbit_cache->get($cacheKey);
 		}
 
 		//Check if any result pulled from cache
-		if(is_null($results)) {
+		if(is_null($data) || empty($data)) {
 			$res = craft()->retsRabbit_properties->query($params);
 
 			if(!$res->didSucceed()) {
@@ -103,7 +103,7 @@ class RetsRabbit_PropertiesVariable
 		$viewData = null;
 
 		if(!$error && !empty($data)) {
-			$resources = new Collection($listings, new PropertyTransformer);
+			$resources = new Collection($data, new PropertyTransformer);
         	$viewData = $this->fractal->createData($resources)->toArray()['data'];
 		}
 
