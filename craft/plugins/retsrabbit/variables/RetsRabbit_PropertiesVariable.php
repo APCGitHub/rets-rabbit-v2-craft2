@@ -77,7 +77,7 @@ class RetsRabbit_PropertiesVariable
 	 */
 	public function query($params = array(), $useCache = false, $cacheDuration = null)
 	{
-		$cacheKey = hash('sha256', serialize($resoParams));
+		$cacheKey = hash('sha256', serialize($params));
 		$data = array();
 		$error = false;
 
