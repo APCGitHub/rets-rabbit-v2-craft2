@@ -32,6 +32,7 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 			return craft()->retsRabbit_cache->get('access_token', true);
 		});
 		$this->api = new ApiService($bridge);
+		$this->api->overrideBaseApiEndpoint('https://stage.retsrabbit.com');
 		$this->resource = new PropertiesResource($this->api);
 	}
 
