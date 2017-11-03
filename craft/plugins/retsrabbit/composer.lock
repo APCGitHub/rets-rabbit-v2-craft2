@@ -244,12 +244,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
-                "reference": "fb116d20f6aee839e3a052e957bb6d0dc7f1260e"
+                "reference": "072a5b6a3afa6a773b4ed633e3af056798c15cce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/fb116d20f6aee839e3a052e957bb6d0dc7f1260e",
-                "reference": "fb116d20f6aee839e3a052e957bb6d0dc7f1260e",
+                "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/072a5b6a3afa6a773b4ed633e3af056798c15cce",
+                "reference": "072a5b6a3afa6a773b4ed633e3af056798c15cce",
                 "shasum": ""
             },
             "require": {
@@ -275,7 +275,7 @@
                 "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/master",
                 "issues": "https://github.com/Anecka/rets-rabbit-plugin-core/issues"
             },
-            "time": "2017-08-15 15:37:28"
+            "time": "2017-11-03 13:35:54"
         },
         {
             "name": "symfony/yaml",
