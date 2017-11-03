@@ -15,6 +15,16 @@ class RetsRabbit_PropertiesVariable
 	 */
 	private $fractal;
 
+	/**
+	 * Cache duration in seconds
+	 * 
+	 * @var integer
+	 */
+	private $cacheDuration = 3600;
+
+	/**
+	 * RetsRabbit_PropertiesVariable Constructor
+	 */
 	public function __construct()
 	{
 		$this->fractal = new Manager();
@@ -25,11 +35,38 @@ class RetsRabbit_PropertiesVariable
 	 * @param  $id string
 	 * @return array
 	 */
-	public function find($id = '')
+	public function find($id = '', $resoParams = array(), $useCache = false, $cacheDuration = null)
 	{
-		$listing = craft()->retsRabbit_properties->find($id);
-        $resources = new Item($data, new PropertyTransformer);
-        $viewData = $this->fractal->createData($resources)->toArray()['data'];
+		$cacheKey = md5($id . serialize($resoParams));
+		$cacheKey = hash('sha256', $cacheKey);
+		$data = array();
+		$error = false;
+
+		//See if fetching from cache
+		if($useCache) {
+			$results = craft()->retsRabbit_cache->get($cacheKey);
+		}
+
+		//Check if any result pulled from cache
+		if(is_null($results)) {
+			$res = craft()->retsRabbit_properties->find($id);
+
+			if(!$res->didSucceed()) {
+				$error = true;
+			} else {
+				$data = $res->getResponse()['value'];
+				$ttl = $cacheDuration ?: $this->cacheDuration;
+
+				craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+			}
+		}
+
+		$viewData = null;
+
+		if(!$error && !empty($data)) {
+			$resources = new Item($data, new PropertyTransformer);
+        	$viewData = $this->fractal->createData($resources)->toArray()['data'];
+		}
 
 		return $viewData;
 	}
@@ -38,9 +75,48 @@ class RetsRabbit_PropertiesVariable
 	 * @param  $params array
 	 * @return array
 	 */
-	public function query($params = array())
+	public function query($params = array(), $useCache = false, $cacheDuration = null)
 	{
-		$listings = craft()->retsRabbit_properties->query($params);
+		$cacheKey = hash('sha256', serialize($resoParams));
+		$data = array();
+		$error = false;
+
+		//See if fetching from cache
+		if($this->useCache($cacheSettings)) {
+			$results = craft()->retsRabbit_cache->get($cacheKey);
+		}
+
+		//Check if any result pulled from cache
+		if(is_null($results)) {
+			$res = craft()->retsRabbit_properties->query($params);
+
+			if(!$res->didSucceed()) {
+				$error = true;
+			} else {
+				$data = $res->getResponse()['value'];
+				$ttl = $cacheDuration ?: $this->cacheDuration;
+
+				craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+			}
+		}
+
+		$viewData = null;
+
+		if(!$error && !empty($data)) {
+			$resources = new Collection($listings, new PropertyTransformer);
+        	$viewData = $this->fractal->createData($resources)->toArray()['data'];
+		}
+
+		return $viewData;
+	}
+
+	/**
+	 * @param  string
+	 * @return array
+	 */
+	public function search($id = '', $cacheSettings = null)
+	{
+		$listings = craft()->retsRabbit_properties->search($id);
 
         $resources = new Collection($listings, new PropertyTransformer);
         $viewData = $this->fractal->createData($resources)->toArray()['data'];
@@ -49,16 +125,11 @@ class RetsRabbit_PropertiesVariable
 	}
 
 	/**
-	 * @param  string
-	 * @return array
+	 * @param  $cacheSettings
+	 * @return boolean
 	 */
-	public function search($id = '')
+	private function useCache($cacheSettings)
 	{
-		$listings = craft()->retsRabbit_properties->search($id);
-
-        $resources = new Collection($listings, new PropertyTransformer);
-        $viewData = $this->fractal->createData($resources)->toArray()['data'];
-
-		return $listings;
+		return is_null($cacheSettings) || empty($cacheSettings);
 	}
 }
