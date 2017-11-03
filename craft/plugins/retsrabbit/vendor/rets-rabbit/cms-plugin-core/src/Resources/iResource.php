@@ -27,4 +27,18 @@ interface iResource
      * @return ApiResponse
      */
     public function metadata($params = array());
+
+    /**
+     * Run a raw query with RESO defined params:
+     * 
+     * 1. $select
+     * 2. $filter
+     * 3. $top
+     * 4. $orderby
+     * 5. $skip
+     * 
+     * @param  array $params
+     * @return ApiResponse
+     */
+    public function query($params = array());
 }

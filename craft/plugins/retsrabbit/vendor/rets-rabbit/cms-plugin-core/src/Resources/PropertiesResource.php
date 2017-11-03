@@ -19,6 +19,8 @@ class PropertiesResource extends aResource
     }
 
     /**
+     * TODO: This needs to accept <form> params.
+     * 
      * Run a search query against the property endpoint
      *
      * @param  array  $params
@@ -39,6 +41,19 @@ class PropertiesResource extends aResource
     public function metadata($params = array())
     {
         $url = $this->api->buildApiUrl('/property/$metadata');
+
+        return $this->api->getRequest($url, $params, true);
+    }
+
+    /**
+     * Run a raw query with RESO defined params
+     * 
+     * @param  $params array
+     * @return ApiResponse
+     */
+    public function query($params = array())
+    {
+        $url = $this->api->buildApiUrl("/property");
 
         return $this->api->getRequest($url, $params, true);
     }

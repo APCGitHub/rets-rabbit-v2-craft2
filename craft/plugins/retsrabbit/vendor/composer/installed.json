@@ -302,12 +302,12 @@
         "source": {
             "type": "git",
             "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
-            "reference": "072a5b6a3afa6a773b4ed633e3af056798c15cce"
+            "reference": "c0df7aaea8470260ffa017e5d881a52c423fe878"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/072a5b6a3afa6a773b4ed633e3af056798c15cce",
-            "reference": "072a5b6a3afa6a773b4ed633e3af056798c15cce",
+            "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/c0df7aaea8470260ffa017e5d881a52c423fe878",
+            "reference": "c0df7aaea8470260ffa017e5d881a52c423fe878",
             "shasum": ""
         },
         "require": {
@@ -315,7 +315,7 @@
             "php": ">=5.6",
             "symfony/yaml": "^3.3"
         },
-        "time": "2017-11-03 13:35:54",
+        "time": "2017-11-03 14:26:23",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -335,5 +335,71 @@
             "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/master",
             "issues": "https://github.com/Anecka/rets-rabbit-plugin-core/issues"
         }
+    },
+    {
+        "name": "league/fractal",
+        "version": "0.16.0",
+        "version_normalized": "0.16.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thephpleague/fractal.git",
+            "reference": "d0445305e308d9207430680acfd580557b679ddc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thephpleague/fractal/zipball/d0445305e308d9207430680acfd580557b679ddc",
+            "reference": "d0445305e308d9207430680acfd580557b679ddc",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "doctrine/orm": "^2.5",
+            "illuminate/contracts": "~5.0",
+            "mockery/mockery": "~0.9",
+            "pagerfanta/pagerfanta": "~1.0.0",
+            "phpunit/phpunit": "~4.0",
+            "squizlabs/php_codesniffer": "~1.5",
+            "zendframework/zend-paginator": "~2.3"
+        },
+        "suggest": {
+            "illuminate/pagination": "The Illuminate Pagination component.",
+            "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+            "zendframework/zend-paginator": "Zend Framework Paginator"
+        },
+        "time": "2017-03-12 01:28:43",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.13-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "League\\Fractal\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Phil Sturgeon",
+                "email": "me@philsturgeon.uk",
+                "homepage": "http://philsturgeon.uk/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Handle the output of complex data structures ready for API output.",
+        "homepage": "http://fractal.thephpleague.com/",
+        "keywords": [
+            "api",
+            "json",
+            "league",
+            "rest"
+        ]
     }
 ]

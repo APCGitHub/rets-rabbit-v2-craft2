@@ -39,4 +39,15 @@ class ServersResource extends aResource
     {
         return $this->search();
     }
+
+    /**
+     * Run a raw query with RESO defined params
+     * 
+     * @param  $params array
+     * @return ApiResponse
+     */
+    public function query($params = array())
+    {
+        throw new \Exception("This method is not yet implemented");
+    }
 }
