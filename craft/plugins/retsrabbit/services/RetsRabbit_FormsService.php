@@ -2,7 +2,7 @@
 
 namespace Craft;
 
-class RetsRabbit_FormService extends BaseApplicationComponent
+class RetsRabbit_FormsService extends BaseApplicationComponent
 {
 	/**
 	 * Convert form params to RESO standard format
