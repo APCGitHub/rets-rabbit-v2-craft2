@@ -88,7 +88,7 @@ class RetsRabbit_PropertiesVariable
 
 		//Check if any result pulled from cache
 		if(is_null($data) || empty($data)) {
-			$res = craft()->retsRabbit_properties->query($params);
+			$res = craft()->retsRabbit_properties->search($params);
 
 			if(!$res->didSucceed()) {
 				$error = true;
@@ -131,7 +131,7 @@ class RetsRabbit_PropertiesVariable
 			}
 
 			if(is_null($data) || empty($data)) {
-				$res = craft()->retsRabbit_properties->query($params);
+				$res = craft()->retsRabbit_properties->search($params);
 
 				if(!$res->didSucceed()) {
 					$error = true;
