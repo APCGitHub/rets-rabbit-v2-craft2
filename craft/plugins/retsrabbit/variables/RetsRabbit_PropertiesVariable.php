@@ -32,6 +32,8 @@ class RetsRabbit_PropertiesVariable
 	}
 
 	/**
+	 * Find a property listing by its MSL id.
+	 * 
 	 * @param  $id string
 	 * @return array
 	 */
@@ -72,7 +74,11 @@ class RetsRabbit_PropertiesVariable
 	}
 
 	/**
+	 * Perform a query against the Rets Rabbit API.
+	 * 
 	 * @param  $params array
+	 * @param  $useCache bool
+	 * @param  $cacheDuration mixed
 	 * @return array
 	 */
 	public function query($params = array(), $useCache = false, $cacheDuration = null)
@@ -111,7 +117,11 @@ class RetsRabbit_PropertiesVariable
 	}
 
 	/**
-	 * @param  string
+	 * Grab a saved search and run that search against the Rets Rabbit API
+	 * 
+	 * @param  $id string
+	 * @param  $useCache bool
+	 * @param  $cacheDuration mixed
 	 * @return array
 	 */
 	public function search($id = '', $useCache = false, $cacheDuration = null)
@@ -151,6 +161,8 @@ class RetsRabbit_PropertiesVariable
 			}
 
 			return $viewData;
+		} else {
+			return null;
 		}
 	}
 }
