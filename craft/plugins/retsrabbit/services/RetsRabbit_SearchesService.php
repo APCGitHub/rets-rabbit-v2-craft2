@@ -32,8 +32,6 @@ class RetsRabbit_SearchesService extends BaseApplicationComponent
 	public function newSearch($attributes = array())
 	{
 		$model = new RetsRabbit_SearchModel();
-		$attributes['created_at'] = (new \DateTime)->format('Y-m-d H:i:s');
-
 		$model->setAttributes($attributes);
 
 		return $model;

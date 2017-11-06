@@ -21,7 +21,6 @@ class RetsRabbit_SearchModel extends BaseModel
 			'id' => AttributeType::Number,
 			'type' => AttributeType::String,
 			'params' => AttributeType::String,
-			'created_at' => AttributeType::DateTime,
 		);
 	}
 }
