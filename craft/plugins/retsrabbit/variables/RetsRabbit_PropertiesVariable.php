@@ -49,7 +49,7 @@ class RetsRabbit_PropertiesVariable
 
 		//Check if any result pulled from cache
 		if(is_null($data) || empty($data)) {
-			$res = craft()->retsRabbit_properties->find($id);
+			$res = craft()->retsRabbit_properties->find($id, $resoParams);
 
 			if(!$res->didSucceed()) {
 				$error = true;
