@@ -5,25 +5,6 @@ namespace Craft;
 class RetsRabbit_SearchesService extends BaseApplicationComponent
 {
 	/**
-	 * Search record instance
-	 * 
-	 * @var RetsRabbit_SearchRecord
-	 */
-	protected $searchRecord;
-
-	/**
-	 * @param mixed
-	 */
-	public function __construct($searchRecord = null)
-	{
-		$this->searchRecord = $searchRecord;
-
-		if(is_null($this->searchRecord)) {
-			$this->searchRecord = RetsRabbit_SearchRecord::model();	
-		}
-	}
-
-	/**
 	 * Create a new search model
 	 * 
 	 * @param  array
@@ -32,6 +13,9 @@ class RetsRabbit_SearchesService extends BaseApplicationComponent
 	public function newSearch($attributes = array())
 	{
 		$model = new RetsRabbit_SearchModel();
+		if(isset($attributes['params'])) {
+			$attributes['params'] = json_encode($attributes['params']);
+		}
 		$model->setAttributes($attributes);
 
 		return $model;
@@ -51,6 +35,37 @@ class RetsRabbit_SearchesService extends BaseApplicationComponent
 	}
 
 	/**
+	 * Save a search
+	 * 
+	 * @param  RetsRabbit_SearchModel
+	 * @return bool
+	 */
+	public function saveSearch(RetsRabbit_SearchModel &$model)
+	{
+		if($id = $model->getAttribute('id')) {
+			if (null === ($record = RetsRabbit_SearchRecord::model()->findById($id))) {
+                throw new Exception(Craft::t('Can\'t find search with ID "{id}"', array('id' => $id)));
+            }
+		} else {
+			$record = new RetsRabbit_SearchRecord;
+		}
+
+		$record->setAttributes($model->getAttributes());
+
+		if($record->save()) {
+			//for new records, update the id attr
+			$model->setAttribute('id', $record->getAttribute('id'));
+
+			return true;
+		} else {
+			$model->addErrors($record->getErrors());
+
+			return false;
+		}
+
+	}
+
+	/**
 	 * Find a search by id
 	 * 
 	 * @param  $id integer
@@ -58,7 +73,7 @@ class RetsRabbit_SearchesService extends BaseApplicationComponent
 	 */
 	public function getById($id = 0)
 	{
-		$record = $this->searchRecord->findById($id);
+		$record = RetsRabbit_SearchRecord::model()->findById($id);
 
 		if($record) {
 			return RetsRabbit_SearchModel::populateModel($record);
@@ -75,6 +90,6 @@ class RetsRabbit_SearchesService extends BaseApplicationComponent
 	 */
 	public function deleteById($id = 0)
 	{
-		return $this->searchRecord->deleteById($id);
+		return RetsRabbit_SearchRecord::model()->deleteById($id);
 	}
 }
