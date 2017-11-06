@@ -26,6 +26,13 @@ class RetsRabbit_PropertiesController extends BaseController
 			'params' => $resoParams
 		));
 
-		$this->redirectToPostedUrl(array('searchId' => $search->id));
+		if(craft()->retsRabbit_searches->saveSearch($search)) {
+			craft()->userSession->setNotice(Craft::t('Search saved'));
+
+			$this->redirectToPostedUrl(array('searchId' => $search->id));
+		} else {
+			craft()->userSession->setError(Craft::t("Couldn't save search."));
+			craft()->urlManager->setRouteVariables(array('search' => $search));
+		}
 	}
 }
