@@ -123,13 +123,4 @@ class RetsRabbit_PropertiesVariable
 
 		return $listings;
 	}
-
-	/**
-	 * @param  $cacheSettings
-	 * @return boolean
-	 */
-	private function useCache($cacheSettings)
-	{
-		return is_null($cacheSettings) || empty($cacheSettings);
-	}
 }
