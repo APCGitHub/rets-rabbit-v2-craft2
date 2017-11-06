@@ -181,6 +181,7 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         'RetsRabbit\\Bridges\\EEBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/EEBridge.php',
         'RetsRabbit\\Bridges\\iCmsBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/iCmsBridge.php',
         'RetsRabbit\\MediaResource\\MediaResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/MediaResource.php',
+        'RetsRabbit\\QueryBuilder\\QueryBuilder' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/QueryBuilder.php',
         'RetsRabbit\\Resources\\OpenHousesResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/OpenHousesResource.php',
         'RetsRabbit\\Resources\\PropertiesResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/PropertiesResource.php',
         'RetsRabbit\\Resources\\ServersResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/ServersResource.php',

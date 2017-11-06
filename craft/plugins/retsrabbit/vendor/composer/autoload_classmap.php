@@ -110,6 +110,7 @@ return array(
     'RetsRabbit\\Bridges\\EEBridge' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Bridges/EEBridge.php',
     'RetsRabbit\\Bridges\\iCmsBridge' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Bridges/iCmsBridge.php',
     'RetsRabbit\\MediaResource\\MediaResource' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Resources/MediaResource.php',
+    'RetsRabbit\\QueryBuilder\\QueryBuilder' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/QueryBuilder.php',
     'RetsRabbit\\Resources\\OpenHousesResource' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Resources/OpenHousesResource.php',
     'RetsRabbit\\Resources\\PropertiesResource' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Resources/PropertiesResource.php',
     'RetsRabbit\\Resources\\ServersResource' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Resources/ServersResource.php',
