@@ -110,7 +110,7 @@ class QueryBuilder
 		$select = null;
 
 		if(isset($params['select'])) {
-			$select = explode('|', $params['selects']);
+			$select = explode('|', $params['select']);
 		}
 
 		return $select;
