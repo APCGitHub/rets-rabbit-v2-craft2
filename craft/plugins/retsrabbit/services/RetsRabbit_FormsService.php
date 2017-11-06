@@ -2,6 +2,8 @@
 
 namespace Craft;
 
+use RetsRabbit\QueryBuilder;
+
 class RetsRabbit_FormsService extends BaseApplicationComponent
 {
 	/**
@@ -12,9 +14,8 @@ class RetsRabbit_FormsService extends BaseApplicationComponent
 	 */
 	public function toReso($params = array())
 	{
-		$reso = array();
-
-		//TODO: Call rr core lib method to transform the $params data
+		$queryBuilder = new QueryBuilder;
+		$reso = $queryBuilder->format($params);
 
 		return $reso;
 	}
