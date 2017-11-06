@@ -40,17 +40,4 @@ class OpenHousesResource extends aResource
 
         return $this->api->getRequest($url, $params, true);
     }
-
-    /**
-     * Run a raw query with RESO defined params
-     * 
-     * @param  $params array
-     * @return ApiResponse
-     */
-    public function query($params = array())
-    {
-        $url = $this->api->buildApiUrl("/open-house");
-
-        return $this->api->getRequest($url, $params, true);
-    }
 }

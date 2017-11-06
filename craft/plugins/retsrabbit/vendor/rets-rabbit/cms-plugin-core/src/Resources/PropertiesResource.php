@@ -46,19 +46,6 @@ class PropertiesResource extends aResource
     }
 
     /**
-     * Run a raw query with RESO defined params
-     * 
-     * @param  $params array
-     * @return ApiResponse
-     */
-    public function query($params = array())
-    {
-        $url = $this->api->buildApiUrl("/property");
-
-        return $this->api->getRequest($url, $params, true);
-    }
-
-    /**
      * Fetch a single property's media (photos)
      *
      * @param  string|int $id
