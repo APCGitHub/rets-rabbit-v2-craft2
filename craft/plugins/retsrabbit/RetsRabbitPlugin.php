@@ -36,6 +36,7 @@ class RetsRabbitPlugin extends BasePlugin
 		return array(
 			'clientId' => array(AttributeType::String),
 			'clientSecret' => array(AttributeType::String),
+			'apiEndpoint' => array(AttributeType::String)
 		);
 	}
 
