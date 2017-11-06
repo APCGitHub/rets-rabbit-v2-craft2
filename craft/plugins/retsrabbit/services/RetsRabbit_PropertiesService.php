@@ -57,15 +57,4 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 
 		return $res;
 	}
-
-	/**
-	 * @param  $params array
-	 * @return array
-	 */
-	public function query($params = array())
-	{
-		$res = $this->resource->query($params);
-
-		return $res;
-	}
 }
