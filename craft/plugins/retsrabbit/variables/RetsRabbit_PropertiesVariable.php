@@ -133,12 +133,12 @@ class RetsRabbit_PropertiesVariable
 	/**
 	 * Grab a saved search and run that search against the Rets Rabbit API
 	 * 
-	 * @param  $id string
-	 * @param  $useCache bool
-	 * @param  $cacheDuration mixed
+	 * @param  string $id
+	 * @param  bool $useCache
+	 * @param  mixed $cacheDuration
 	 * @return array
 	 */
-	public function search($id = '', $useCache = false, $cacheDuration = null)
+	public function search($id = '', $params = array(), $useCache = false, $cacheDuration = null)
 	{
 		$search = craft()->retsRabbit_searches->getById($id);
 
