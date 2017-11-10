@@ -2,7 +2,7 @@
 
 namespace Craft;
 
-use RetsRabbit\QueryBuilder;
+use RetsRabbit\Query\QueryParser;
 
 class RetsRabbit_FormsService extends BaseApplicationComponent
 {
@@ -14,8 +14,10 @@ class RetsRabbit_FormsService extends BaseApplicationComponent
 	 */
 	public function toReso($params = array())
 	{
-		$queryBuilder = new QueryBuilder;
-		$reso = $queryBuilder->format($params);
+		$query = new QueryParser;
+		$reso = $query->format($params);
+
+		die(print_r($reso));
 
 		return $reso;
 	}
