@@ -19,8 +19,6 @@ class PropertiesResource extends aResource
     }
 
     /**
-     * TODO: This needs to accept <form> params.
-     * 
      * Run a search query against the property endpoint
      *
      * @param  array  $params
