@@ -368,12 +368,12 @@
         "source": {
             "type": "git",
             "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
-            "reference": "161cdd84fac1abf60d27610c2c3c17d5330618a9"
+            "reference": "0e796fb5b3dbfd5c3e0c05a0cffefdb491a3199c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/161cdd84fac1abf60d27610c2c3c17d5330618a9",
-            "reference": "161cdd84fac1abf60d27610c2c3c17d5330618a9",
+            "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/0e796fb5b3dbfd5c3e0c05a0cffefdb491a3199c",
+            "reference": "0e796fb5b3dbfd5c3e0c05a0cffefdb491a3199c",
             "shasum": ""
         },
         "require": {
@@ -381,7 +381,7 @@
             "php": ">=5.6",
             "symfony/yaml": "^3.3"
         },
-        "time": "2017-11-10 18:13:31",
+        "time": "2017-11-10 18:53:47",
         "type": "library",
         "installation-source": "source",
         "autoload": {

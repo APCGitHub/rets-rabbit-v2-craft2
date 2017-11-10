@@ -324,8 +324,11 @@ class QueryParser
 		$newParams = array();
 
 		foreach($params as $key => $values) {
-			$newKey = substr($key, 3);
+			if($values == '') {
+				continue;
+			}
 
+			$newKey = substr($key, 3);
 			$newParams[$newKey] = $values;
 		}
 
