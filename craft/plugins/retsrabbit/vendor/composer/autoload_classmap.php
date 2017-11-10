@@ -109,6 +109,7 @@ return array(
     'RetsRabbit\\Bridges\\CraftBridge' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Bridges/CraftBridge.php',
     'RetsRabbit\\Bridges\\EEBridge' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Bridges/EEBridge.php',
     'RetsRabbit\\Bridges\\iCmsBridge' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Bridges/iCmsBridge.php',
+    'RetsRabbit\\Exceptions\\QueryException' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Exceptions/QueryException.php',
     'RetsRabbit\\MediaResource\\MediaResource' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Resources/MediaResource.php',
     'RetsRabbit\\Query\\QueryBuilder' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Query/QueryBuilder.php',
     'RetsRabbit\\Query\\QueryParser' => $vendorDir . '/rets-rabbit/cms-plugin-core/src/Query/QueryParser.php',

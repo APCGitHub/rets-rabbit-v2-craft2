@@ -271,7 +271,7 @@ class QueryProcessor
 	 */
 	private function isAnd($boolean)
 	{
-		return $boolean === 'and';
+		return $boolean == 'and';
 	}
 
 	/**

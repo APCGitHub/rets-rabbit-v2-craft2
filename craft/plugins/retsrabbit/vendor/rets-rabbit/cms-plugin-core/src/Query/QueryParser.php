@@ -3,6 +3,8 @@
 namespace RetsRabbit\Query;
 
 
+use RetsRabbit\Exceptions\QueryException;
+
 class QueryParser
 {
 	/**
@@ -78,6 +80,17 @@ class QueryParser
 	 */
 
 	/**
+	 * Possible field query examples:
+	 *
+	 * 1. Multiple Fields (or)
+	 * <input name="rr:StateOrProvince|PostalCode|City(eq)" value="columbus">
+	 *
+	 * 2. Single Field
+	 * <input name="rr:StateOrProvince" value="columbus">
+	 *
+	 * 3. Multiple Values
+	 * <input name="rr:PostalCode" value="43229|43081|44039">
+	 * 
 	 * @param  $params array
 	 */
 	private function buildFilters($params = array())
@@ -90,12 +103,10 @@ class QueryParser
 
 				if(sizeof($stmt) > 1) {
 					//Multiple fields means this is an OR statement
-					foreach($stmt as $_stmt) {
-
-					}
+					$this->buildMultiFieldFilter($stmt, $value);
 				} elseif (sizeof($stmt) == 1) {
 					//Single field
-					$this->buildSingleFilter($stmt[0], $value);
+					$this->buildSingleFieldFilter($stmt[0], $value);
 				}
 			}
 		}
@@ -105,30 +116,114 @@ class QueryParser
 	 * @param string $fieldData
 	 * @param string $value
 	 */
-	private function buildSingleFilter($fieldData, $value)
+	private function buildSingleFieldFilter($fieldData, $value)
 	{
 		$value = explode('|', $value);
+		$pos = strpos($fieldData, '(');
+
+		if($pos === FALSE) {
+			throw new QueryException("Malformed field name query for: $fieldData");
+		}
 		
-		if(($pos = strpos($fieldData, '(')) !== FALSE) {
-			$field = substr($fieldData, 0, $pos);
-			preg_match_all("/\(([^\)]*)\)/", $fieldData, $matches);
+		$field = substr($fieldData, 0, $pos);
+		preg_match_all("/\(([^\)]*)\)/", $fieldData, $matches);
 
-			if(sizeof($matches) > 1) {
-				//Get first capturing group match
-				$operator = $matches[1][0];
+		//Check that we found a valid field name
+		if(sizeof($matches) < 2 || sizeof($matches[1]) < 1) {
+			throw new QueryException("Malformed field name query for: $field");
+		}
+	
+		//Get first capturing group match
+		$operator = $matches[1][0];
 
-				if(sizeof($value) < 2) {
-					//standard single field and value
-					$this->builder->where($field, $operator, $value[0]);
-				} else {
-					//Single field multiple or values
-					foreach($value as $v) {
-						$this->builder->where(function ($q) {
-							$q->orWhere($field, $operator, $v);
-						});
-					}
-				}
+		//Check for valid operators
+		if(!in_array($operator, $this->builder->operators)) {
+			throw new QueryException("Invalid operator: $operator");
+		}
+
+		if($operator == 'between') {
+			if(sizeof($value) != 2) {
+				throw new QueryException("The between operator requires two values separated by a pipe: v1|v2");
 			}
+
+			$this->builder->whereBetween($field, [$value[0], $value[1]]);
+		} else {
+			if(sizeof($value) < 2) {
+				//standard single field and value
+				$this->builder->where($field, $operator, $value[0]);
+			} else {
+				//Single field multiple {or} values
+				$this->builder->where(function ($q) use($value, $field, $operator) {
+					foreach($value as $v) {
+						$q->orWhere($field, $operator, $v);
+					}
+				});
+			}
+		}
+	}
+
+	/**
+	 * Build a multi {or} field query
+	 * 
+	 * @param  array $fields
+	 * @param  string $value
+	 */
+	private function buildMultiFieldFilter($fields, $value)
+	{
+		$value = explode('|', $value);
+		$lastField = $fields[sizeof($fields) - 1];
+		$pos = strpos($lastField, '(');
+		$formattedFields = array();
+
+		if($pos === FALSE) {
+			throw new QueryException("Malformed field name query for: $lastField");
+		}
+
+		preg_match_all("/\(([^\)]*)\)/", $lastField, $matches);
+
+		//Get first capturing group match
+		$operator = $matches[1][0];
+
+		//Check for valid operators
+		if(!in_array($operator, $this->builder->operators)) {
+			throw new QueryException("Invalid operator: $operator");
+		}
+
+		//Normalize all the fields
+		foreach($fields as $f) {
+			$p = strpos($f, '(');
+
+			if($p !== FALSE) {
+				$f = substr($f, 0, $p);
+			}
+
+			$formattedFields[] = $f;
+		}
+
+		//build the query
+		if($operator == 'between') {
+			if(sizeof($value) != 2) {
+				throw new QueryException("The between operator requires two values separated by a pipe: v1|v2");
+			}
+
+			$this->builder->where(function ($q) use($formattedFields, $value) {
+				foreach($formattedFields as $f) {
+					$q->whereBetween($f, [$value[0], $value[1]], 'or');
+				}
+			});
+		} else {
+			if(sizeof($value) > 1) {
+				throw new QueryException('Multiple values for a multi field search are not supported.');
+			}
+
+			$value = $value[0];
+
+			//standard single field and value
+			$this->builder->where(function ($q) use($formattedFields, $operator, $value) {
+				foreach($formattedFields as $f) {
+					$q->orWhere($f, $operator, $value);
+				}
+			});
 		}
 	}
 

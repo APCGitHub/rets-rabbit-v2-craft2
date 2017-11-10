@@ -50,7 +50,7 @@ class QueryBuilder
 	 * 
 	 * @var array
 	 */
-    protected $operators = array(
+    public $operators = array(
         'eq',
         'lt',
         'gt',
@@ -59,7 +59,8 @@ class QueryBuilder
         'ne',
         'contains',
         'endswith',
-        'startswith' 
+        'startswith',
+        'between',
     );
 
     /**

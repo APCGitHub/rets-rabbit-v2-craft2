@@ -180,6 +180,7 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         'RetsRabbit\\Bridges\\CraftBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/CraftBridge.php',
         'RetsRabbit\\Bridges\\EEBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/EEBridge.php',
         'RetsRabbit\\Bridges\\iCmsBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/iCmsBridge.php',
+        'RetsRabbit\\Exceptions\\QueryException' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Exceptions/QueryException.php',
         'RetsRabbit\\MediaResource\\MediaResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/MediaResource.php',
         'RetsRabbit\\Query\\QueryBuilder' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryBuilder.php',
         'RetsRabbit\\Query\\QueryParser' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryParser.php',
