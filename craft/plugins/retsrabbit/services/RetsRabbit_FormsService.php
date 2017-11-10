@@ -14,10 +14,10 @@ class RetsRabbit_FormsService extends BaseApplicationComponent
 	 */
 	public function toReso($params = array())
 	{
-		$query = new QueryParser;
-		$reso = $query->format($params);
-
-		die(print_r($reso));
+		$reso = (new QueryParser)->format($params);
+		$reso = array_filter($reso, function ($value) {
+			return !empty($value);
+		});
 
 		return $reso;
 	}
