@@ -56,7 +56,7 @@ class RetsRabbit_PropertiesVariable
 			if(!$res->didSucceed()) {
 				$error = true;
 			} else {
-				$data = $res->getResponse()['value'];
+				$data = $res->getResponse();
 
 				if($useCache) {
 					$ttl = $cacheDuration ?: $this->cacheDuration;
@@ -73,7 +73,7 @@ class RetsRabbit_PropertiesVariable
 				$viewData = array();
 			} else {
 				$resources = new Item($data, new PropertyTransformer);
-        		$viewData = $this->fractal->createData($resources)->toArray()['data'];
+        		$viewData = $this->fractal->createData($resources)->toArray();
 			}
 		}
 
@@ -138,13 +138,19 @@ class RetsRabbit_PropertiesVariable
 	 * @param  mixed $cacheDuration
 	 * @return array
 	 */
-	public function search($id = '', $params = array(), $useCache = false, $cacheDuration = null)
+	public function search($id = '', $overrides = array(), $useCache = false, $cacheDuration = null)
 	{
 		$search = craft()->retsRabbit_searches->getById($id);
 
 		if($search) {
+			$mergeableKeys = array('$select', '$orderby', '$top', '$skip');
 			$params = $search->getAttribute('params');
 			$params = json_decode($params, true);
+			foreach($mergeableKeys as $key) {
+				if(isset($overrides[$key])) {
+					$params[$key] = $overrides[$key];
+				}
+			}
 			$cacheKey = hash('sha256', serialize($params));
 			$data = array();
 			$error = false;
