@@ -57,17 +57,24 @@ class RetsRabbit_PropertiesVariable
 				$error = true;
 			} else {
 				$data = $res->getResponse()['value'];
-				$ttl = $cacheDuration ?: $this->cacheDuration;
 
-				craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+				if($useCache) {
+					$ttl = $cacheDuration ?: $this->cacheDuration;
+
+					craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+				}
 			}
 		}
 
 		$viewData = null;
 
-		if(!$error && !empty($data)) {
-			$resources = new Item($data, new PropertyTransformer);
-        	$viewData = $this->fractal->createData($resources)->toArray()['data'];
+		if(!$error) {
+			if(empty($data)) {
+				$viewData = array();
+			} else {
+				$resources = new Item($data, new PropertyTransformer);
+        		$viewData = $this->fractal->createData($resources)->toArray()['data'];
+			}
 		}
 
 		return $viewData;
@@ -100,17 +107,24 @@ class RetsRabbit_PropertiesVariable
 				$error = true;
 			} else {
 				$data = $res->getResponse()['value'];
-				$ttl = $cacheDuration ?: $this->cacheDuration;
 
-				craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+				if($useCache) {
+					$ttl = $cacheDuration ?: $this->cacheDuration;
+
+					craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+				}
 			}
 		}
 
 		$viewData = null;
 
-		if(!$error && !empty($data)) {
-			$resources = new Collection($data, new PropertyTransformer);
-        	$viewData = $this->fractal->createData($resources)->toArray()['data'];
+		if(!$error) {
+			if(empty($data)) {
+				$viewData = array();
+			} else {
+				$resources = new Collection($data, new PropertyTransformer);
+        		$viewData = $this->fractal->createData($resources)->toArray()['data'];
+			}
 		}
 
 		return $viewData;
@@ -147,17 +161,24 @@ class RetsRabbit_PropertiesVariable
 					$error = true;
 				} else {
 					$data = $res->getResponse()['value'];
-					$ttl = $cacheDuration ?: $this->cacheDuration;
 
-					craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+					if($useCache) {
+						$ttl = $cacheDuration ?: $this->cacheDuration;
+
+						craft()->retsRabbit_cache->set($cacheKey, $data, $ttl);
+					}
 				}
 			}
 
 			$viewData = null;
 
-			if(!$error && !empty($data)) {
-				$resources = new Collection($data, new PropertyTransformer);
-	        	$viewData = $this->fractal->createData($resources)->toArray()['data'];
+			if(!$error) {
+				if(empty($data)) {
+					$viewData = array();
+				} else {
+					$resources = new Collection($data, new PropertyTransformer);
+	        		$viewData = $this->fractal->createData($resources)->toArray()['data'];
+				}
 			}
 
 			return $viewData;
