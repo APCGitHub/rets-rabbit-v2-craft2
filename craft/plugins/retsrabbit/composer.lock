@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "60d06742e29630a64ddb45c8a96fce43",
+    "hash": "53f9d477e93e7a0095c305c6a2f03cf5",
     "content-hash": "99d260d2ca9ede8b1ebc5009e2e86876",
     "packages": [
         {
@@ -308,12 +308,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
-                "reference": "276ab0b1644d41313616db7c71acf1d69fadbe79"
+                "reference": "b746c8b3c3dd338450af7fcb9a454f26e29b093c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/276ab0b1644d41313616db7c71acf1d69fadbe79",
-                "reference": "276ab0b1644d41313616db7c71acf1d69fadbe79",
+                "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/b746c8b3c3dd338450af7fcb9a454f26e29b093c",
+                "reference": "b746c8b3c3dd338450af7fcb9a454f26e29b093c",
                 "shasum": ""
             },
             "require": {
@@ -339,11 +339,11 @@
                 "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/master",
                 "issues": "https://github.com/Anecka/rets-rabbit-plugin-core/issues"
             },
-            "time": "2017-11-13 14:45:37"
+            "time": "2017-11-13 20:09:17"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.3.11",
+            "version": "v3.3.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",

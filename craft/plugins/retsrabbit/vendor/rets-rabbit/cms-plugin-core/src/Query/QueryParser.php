@@ -155,16 +155,20 @@ class QueryParser
 
 			$this->builder->whereBetween($field, [$value[0], $value[1]]);
 		} else {
-			if(is_string($value) || sizeof($value) < 2) {
-				//standard single field and value
-				$this->builder->where($field, $operator, $value[0]);
-			} else {
+			if(is_array($value)) {
 				//Single field multiple {or} values
-				$this->builder->where(function ($q) use($value, $field, $operator) {
-					foreach($value as $v) {
-						$q->orWhere($field, $operator, $v);
-					}
-				});
+				if(sizeof($value) == 1) {
+					$this->builder->where($field, $operator, $value[0]);
+				} else {
+					$this->builder->where(function ($q) use($value, $field, $operator) {
+						foreach($value as $v) {
+							$q->orWhere($field, $operator, $v);
+						}
+					});
+				}
+			} else {
+				//standard single field and value
+				$this->builder->where($field, $operator, $value);
 			}
 		}
 	}
