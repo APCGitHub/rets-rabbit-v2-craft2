@@ -14,8 +14,8 @@ The Rets Rabbit plugin requires at least php 5.6.
 ## Documentation
 You can interact with the Rets Rabbit API through the `PropertiesVariable` which has the following methods.
 
-1. [find](#findint-id-object-resoParams-bool-useCache-false-int-cacheDuration)
-2. [query](#queryobject-resoParams-bool-useCache-false-int-cacheDuration)
+1. [find](#findint-id-object-resoparams-bool-usecache-false-int-cacheduration)
+2. [query](#queryobject-resoparams-bool-usecache-false-int-cacheduration)
 3. [search](#search)
 
 ### find(*int* $id, *object* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
@@ -50,5 +50,26 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 **$cacheDuration** - Specify how long you would like the results cached for in seconds. The default is one hour.
 
 ```html
+{% set listings = craft.retsRabbit.properties.query({
+    '$select': 'ListingId, ListPrice, PublicRemarks, StateOrProvince, City',
+    '$filter': 'ListPrice ge 150000 and ListPrice le 175000 and BedroomsTotal ge 3',
+    '$orderby': 'ListPrice',
+    '$top': 12
+}) %}
 
+{% if listings is not null %}
+    {# An error occurred #}
+{% else %}
+    {% if listings | length %}
+        {% for listing in listings %}
+            <div class="card">
+                <div class="card-header">
+                    {{listing.ListingId}}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        {# No results for the search #}
+    {% endif %}
+{% endif %}
 ```
