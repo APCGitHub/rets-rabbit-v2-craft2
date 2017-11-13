@@ -14,8 +14,8 @@ The Rets Rabbit plugin requires at least php 5.6.
 ## Documentation
 You can interact with the Rets Rabbit API through the `PropertiesVariable` which has the following methods.
 
-1. [find](#find)
+1. [find](#findint-id-array-resoparams-bool-usecache-false-int-cacheDuration)
 2. [query](#query)
 3. [search](#search)
 
-### find(*int* $id, *array* $resoParams, *bool* $useCache = false, *int* cacheDuration)
+### find(*int* $id, *array* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
