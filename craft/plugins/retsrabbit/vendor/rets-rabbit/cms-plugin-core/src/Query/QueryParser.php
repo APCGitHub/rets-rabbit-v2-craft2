@@ -82,14 +82,15 @@ class QueryParser
 	/**
 	 * Possible field query examples:
 	 *
-	 * 1. Multiple Fields (or)
+	 * 1. Multiple Fields && Single Value (or)
 	 * <input name="rr:StateOrProvince|PostalCode|City(eq)" value="columbus">
 	 *
-	 * 2. Single Field
+	 * 2. Single Field && Single Value (and)
 	 * <input name="rr:StateOrProvince" value="columbus">
 	 *
-	 * 3. Multiple Values
-	 * <input name="rr:PostalCode" value="43229|43081|44039">
+	 * 3. Single Field && Multiple Values (or|between)
+	 * <input name="rr:PostalCode(ge)[]" value="">
+	 * <input name="rr:ListPrice(between)" value="35000|45000">
 	 * 
 	 * @param  $params array
 	 */
@@ -113,12 +114,16 @@ class QueryParser
 	}
 
 	/**
+	 * Build a single field statement according to the following cases:
+	 *
+	 * 1. Single Field & Single Value (string)
+	 * 2. Single Field & Multiple Values (array)
+	 * 
 	 * @param string $fieldData
-	 * @param string $value
+	 * @param mixed $value
 	 */
 	private function buildSingleFieldFilter($fieldData, $value)
 	{
-		$value = explode('|', $value);
 		$pos = strpos($fieldData, '(');
 
 		if($pos === FALSE) {
@@ -142,13 +147,15 @@ class QueryParser
 		}
 
 		if($operator == 'between') {
+			$value = explode('|', $value);
+
 			if(sizeof($value) != 2) {
 				throw new QueryException("The between operator requires two values separated by a pipe: v1|v2");
 			}
 
 			$this->builder->whereBetween($field, [$value[0], $value[1]]);
 		} else {
-			if(sizeof($value) < 2) {
+			if(is_string($value) || sizeof($value) < 2) {
 				//standard single field and value
 				$this->builder->where($field, $operator, $value[0]);
 			} else {
