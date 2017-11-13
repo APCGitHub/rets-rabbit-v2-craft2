@@ -31,4 +31,12 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 ```html
 {% set listing = craft.retsRabbit.properties.find('123abc') %}
 
+{#
+# You should check to see if listing is null which means an error occurred.
+#}
+
+{% if listing is not null %}
+    {{listing.ListingId}}
+{% endif %}
+
 ```
