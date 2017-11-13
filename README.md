@@ -1,1 +1,1 @@
-rets-rabbit-v2-craft2
+# Rets Rabbit Craft CMS Plugin
