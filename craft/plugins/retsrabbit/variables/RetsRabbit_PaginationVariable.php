@@ -12,12 +12,12 @@ class RetsRabbit_PaginationVariable
 	public function properties($searchId = 0, $perPage = null, $type = 'estimated')
 	{
 		$select = array('$select' => 'estimated_results');
+		$paginateV = new PaginateVariable;
+		$search = craft()->retsRabbit_searches->getById($searchId);
 
 		if($type == 'exact') {
 			$select['$select'] = 'total_results';
 		}
-
-		$search = craft()->retsRabbit_searches->getById($searchId);
 
 		if($search) {
 			$params = json_decode($search->getAttribute('params'), true);
@@ -38,9 +38,7 @@ class RetsRabbit_PaginationVariable
 				}
 			}
 
-			$paginateV = new PaginateVariable;
-
-			if($error) {
+			if($error || $total == 0) {
 				return $paginateV;
 			}
 
