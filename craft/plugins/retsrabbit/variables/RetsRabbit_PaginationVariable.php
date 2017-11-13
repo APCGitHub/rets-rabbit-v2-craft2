@@ -27,7 +27,7 @@ class RetsRabbit_PaginationVariable
 			$total = craft()->retsRabbit_cache->get($cacheKey);
 			$error = false;
 
-			if(is_null($total)) {
+			if(is_null($total) || $total === FALSE) {
 				$res = craft()->retsRabbit_properties->search($params);
 
 				if(!$res->didSucceed()) {
