@@ -29,7 +29,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 **$cacheDuration** - Specify how long you would like the results cached for in seconds. The default is one hour.
 
 ```html
-{% set listing = craft.retsRabbit.properties.find('123abc', {'$select': 'ListingId', 'ListPrice'}, true) %}
+{% set listing = craft.retsRabbit.properties.find('123abc', {'$select': 'ListingId, ListPrice'}, true) %}
 
 {#
 # You should check to see if listing is null which means an error occurred.
