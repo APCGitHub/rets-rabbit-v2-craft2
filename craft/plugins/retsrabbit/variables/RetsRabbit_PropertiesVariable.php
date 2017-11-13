@@ -143,13 +143,17 @@ class RetsRabbit_PropertiesVariable
 		$search = craft()->retsRabbit_searches->getById($id);
 
 		if($search) {
-			$mergeableKeys = array('$select', '$orderby', '$top', '$skip');
+			$currentPage = craft()->request->getPageNum();
+			$mergeableKeys = array('$select', '$orderby', '$top');
 			$params = $search->getAttribute('params');
 			$params = json_decode($params, true);
 			foreach($mergeableKeys as $key) {
 				if(isset($overrides[$key])) {
 					$params[$key] = $overrides[$key];
 				}
+			}
+			if($currentPage > 1) {
+				$params['$skip'] = ($currentPage - 1) * $params['$top'];
 			}
 			$cacheKey = hash('sha256', serialize($params));
 			$data = array();
