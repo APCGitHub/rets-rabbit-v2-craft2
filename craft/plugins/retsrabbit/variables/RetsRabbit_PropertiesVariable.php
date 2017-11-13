@@ -3,10 +3,10 @@
 namespace Craft;
 
 use Anecka\RetsRabbit\Transformers\PropertyTransformer;
+use Anecka\RetsRabbit\Serializers\RetsRabbitArraySerializer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
 use League\Fractal\Resource\Collection;
-use League\Fractal\Serializer\ArraySerializer;
 
 class RetsRabbit_PropertiesVariable
 {
@@ -28,7 +28,7 @@ class RetsRabbit_PropertiesVariable
 	public function __construct()
 	{
 		$this->fractal = new Manager();
-		$this->fractal->setSerializer(new ArraySerializer);
+		$this->fractal->setSerializer(new RetsRabbitArraySerializer);
 	}
 
 	/**

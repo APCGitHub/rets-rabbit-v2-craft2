@@ -11,7 +11,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Anecka\\RetsRabbit\\Transformers\\": "transforms"
+            "Anecka\\RetsRabbit\\Transformers\\": "transforms",
+            "Anekca\\RetsRabbit\\Serializers\\": "serializers"
         }
     }
 }
