@@ -23,3 +23,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 **$id** - The MLS id of the property you want to fetch from the API.
 
 **$resoParams** - You may pass valid RESO parameters to help filter the API results for a single listing. This can help speed up the response time if you specifically select the fields you will need from the API by using the `$select` parameter.
+
+**$useCache** - Specify if you want the results cached.
+
+**$cacheDuration** - Specify how long you would like the results cached for in seconds. The default is one hour.
