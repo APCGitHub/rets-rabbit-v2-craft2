@@ -4,11 +4,16 @@ This plugin allows you to connect to the Rets Rabbit API(v2) in order to display
 
 ## Installation
 1. Clone or Download the plugin.
-2. Copy craft/plugins/retsrabbit to your plugins folder.
+2. Copy `craft/plugins/retsrabbit` to your plugins folder.
 3. Install plugin in the Craft Control Panel under Settings > Plugins
 4. Go to the Rets Rabbit settings page and add your Client ID & Secret.
 
 ### Requirements
-The Rets Rabbit plugin requires at least php 5.5.
+The Rets Rabbit plugin requires at least php 5.6.
 
 ## Documentation
+You can interact with the Rets Rabbit API through the PropertiesVariable which has the following methods.
+
+1. find
+2. query
+3. search
