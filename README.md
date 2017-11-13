@@ -14,11 +14,11 @@ The Rets Rabbit plugin requires at least php 5.6.
 ## Documentation
 You can interact with the Rets Rabbit API through the `PropertiesVariable` which has the following methods.
 
-1. [find](#findint-id-array-resoParams-bool-useCache-false-int-cacheDuration)
-2. [query](#query)
+1. [find](#findint-id-object-resoParams-bool-useCache-false-int-cacheDuration)
+2. [query](#queryobject-resoParams-bool-useCache-false-int-cacheDuration)
 3. [search](#search)
 
-### find(*int* $id, *array* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
+### find(*int* $id, *object* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
 
 **$id** - The MLS id of the property you want to fetch from the API.
 
@@ -38,5 +38,17 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 {% if listing is not null %}
     {{listing.ListingId}}
 {% endif %}
+
+```
+
+### query(*object* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
+
+**$resoParams** - You may pass valid RESO parameters to help filter the API results for a single listing. This can help speed up the response time if you specifically select the fields you will need from the API by using the `$select` parameter.
+
+**$useCache** - Specify if you want the results cached.
+
+**$cacheDuration** - Specify how long you would like the results cached for in seconds. The default is one hour.
+
+```html
 
 ```
