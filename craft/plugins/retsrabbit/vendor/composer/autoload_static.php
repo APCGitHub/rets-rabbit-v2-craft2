@@ -37,6 +37,7 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         ),
         'A' => 
         array (
+            'Anekca\\RetsRabbit\\Serializers\\' => 30,
             'Anecka\\RetsRabbit\\Transformers\\' => 31,
         ),
     );
@@ -69,6 +70,10 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Anekca\\RetsRabbit\\Serializers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/serializers',
         ),
         'Anecka\\RetsRabbit\\Transformers\\' => 
         array (
