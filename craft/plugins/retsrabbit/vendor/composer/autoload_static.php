@@ -83,7 +83,6 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
 
     public static $classMap = array (
         'Anecka\\RetsRabbit\\Serializers\\RetsRabbitArraySerializer' => __DIR__ . '/../..' . '/serializers/RetsRabbitArraySerializer.php',
-        'Anecka\\RetsRabbit\\Transformers\\PhotoTransformer' => __DIR__ . '/../..' . '/transforms/PhotoTransformer.php',
         'Anecka\\RetsRabbit\\Transformers\\PropertyTransformer' => __DIR__ . '/../..' . '/transforms/PropertyTransformer.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
         'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
