@@ -19,6 +19,8 @@ class RetsRabbit_FormsService extends BaseApplicationComponent
 			return !empty($value);
 		});
 
+		RetsRabbitPlugin::log(print_r($reso, true));
+
 		return $reso;
 	}
 }
