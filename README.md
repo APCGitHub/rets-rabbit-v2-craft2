@@ -19,3 +19,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 3. [search](#search)
 
 ### find(*int* $id, *array* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
+
+**$id** - The MLS id of the property you want to fetch from the API.
+
+**$resoParams** - You may pass valid RESO parameters to help filter the API results for a single listing. This can help speed up the response time if you specifically select the fields you will need from the API by using the `$select` parameter.
