@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Anecka\\RetsRabbit\\Serializers\\RetsRabbitArraySerializer' => $baseDir . '/serializers/RetsRabbitArraySerializer.php',
     'Anecka\\RetsRabbit\\Transformers\\PhotoTransformer' => $baseDir . '/transforms/PhotoTransformer.php',
     'Anecka\\RetsRabbit\\Transformers\\PropertyTransformer' => $baseDir . '/transforms/PropertyTransformer.php',
     'GuzzleHttp\\Client' => $vendorDir . '/guzzlehttp/guzzle/src/Client.php',

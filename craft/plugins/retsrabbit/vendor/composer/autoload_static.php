@@ -37,8 +37,8 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         ),
         'A' => 
         array (
-            'Anekca\\RetsRabbit\\Serializers\\' => 30,
             'Anecka\\RetsRabbit\\Transformers\\' => 31,
+            'Anecka\\RetsRabbit\\Serializers\\' => 30,
         ),
     );
 
@@ -71,17 +71,18 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'Anekca\\RetsRabbit\\Serializers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/serializers',
-        ),
         'Anecka\\RetsRabbit\\Transformers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/transforms',
         ),
+        'Anecka\\RetsRabbit\\Serializers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/serializers',
+        ),
     );
 
     public static $classMap = array (
+        'Anecka\\RetsRabbit\\Serializers\\RetsRabbitArraySerializer' => __DIR__ . '/../..' . '/serializers/RetsRabbitArraySerializer.php',
         'Anecka\\RetsRabbit\\Transformers\\PhotoTransformer' => __DIR__ . '/../..' . '/transforms/PhotoTransformer.php',
         'Anecka\\RetsRabbit\\Transformers\\PropertyTransformer' => __DIR__ . '/../..' . '/transforms/PropertyTransformer.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
