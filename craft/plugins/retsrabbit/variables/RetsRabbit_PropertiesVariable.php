@@ -123,7 +123,7 @@ class RetsRabbit_PropertiesVariable
 				$viewData = array();
 			} else {
 				$resources = new Collection($data, new PropertyTransformer);
-        		$viewData = $this->fractal->createData($resources)->toArray()['data'];
+        		$viewData = $this->fractal->createData($resources)->toArray();
 			}
 		}
 
@@ -183,7 +183,7 @@ class RetsRabbit_PropertiesVariable
 					$viewData = array();
 				} else {
 					$resources = new Collection($data, new PropertyTransformer);
-	        		$viewData = $this->fractal->createData($resources)->toArray()['data'];
+	        		$viewData = $this->fractal->createData($resources)->toArray();
 				}
 			}
 
