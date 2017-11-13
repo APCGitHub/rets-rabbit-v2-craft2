@@ -18,4 +18,4 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 2. [query](#query)
 3. [search](#search)
 
-### find(**int** $id, **array** $resoParams, **bool** $useCache = false, **int** cacheDuration)
+### find(*int* $id, *array* $resoParams, *bool* $useCache = false, *int* cacheDuration)
