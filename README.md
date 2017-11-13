@@ -12,8 +12,10 @@ This plugin allows you to connect to the Rets Rabbit API(v2) in order to display
 The Rets Rabbit plugin requires at least php 5.6.
 
 ## Documentation
-You can interact with the Rets Rabbit API through the PropertiesVariable which has the following methods.
+You can interact with the Rets Rabbit API through the `PropertiesVariable` which has the following methods.
 
-1. find
-2. query
-3. search
+1. [find](#find)
+2. [query](#query)
+3. [search](#search)
+
+### find(**int** $id, **array** $resoParams, **bool** $useCache = false, **int** cacheDuration)
