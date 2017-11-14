@@ -293,6 +293,10 @@ The following example contains markup which will generate a form having the foll
 </form>
 ```
 
+We used [Bulma.io](https://bulma.io/) in this example, but the above markup will generate something like the following.
+
+![Search Form](screenshots/search-form.png "Search Form")
+
 ### Search Pagination
 
 Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the `PaginationVariable` to help.
