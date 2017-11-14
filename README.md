@@ -119,7 +119,7 @@ At some point your site will need to have a search form where users enter in the
 
 #### Required Fields
 
-Your search form must have the following two inputs for it correctly search.
+Your search form must have the following two inputs.
 
 1. `<input type="hidden" name="action" value="retsRabbit/properties/search">
 `
@@ -132,6 +132,8 @@ We believe that the following three search types should cover the vast majority 
 1. Single field for a single value
 2. Single field for multiple values
 3. Multiple fields for a single value
+
+#### Search Form DSL
 
 Next, let's dive into creating a search form. In general our markup DSL follows a simple pattern:
 
