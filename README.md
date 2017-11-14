@@ -114,18 +114,23 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 ```
 
+### Search Pagination
+
+Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the `PaginationVariable` to help.
+
+In order to pagination your listing results from our API you must use the `PropertiesVariable` in conjunction with the `PaginationVariable`.
+
 ### Other Variables
 
 Aside from the `PropertiesVariable`, there are a couple of other variables you have access to in your templates.
 
 * SearchesVariable - `craft.retsRabbit.searches`
-* PaginationVariable - `craft.retsRabbit.pagination`
 
 #### SearchesVariable
 
 This template variable has the following methods:
 
-1. [exists](#boolexistsint-id)
+1. [exists](#bool-existsint-id)
 
 #### *bool* exists(*int* $id)
 
