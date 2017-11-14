@@ -117,13 +117,23 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 At some point your site will need to have a search form where users enter in the search criteria. We've created a markup DSL for your search HTML which will allow you to create beautiful forms for your users.
 
-We allow the following types of searches to be performed against your MLS's fields.
+We believe that the following three search types should cover the vast majority of search form use cases.
 
 1. Multiple fields for a single value
 2. Single field for a single value
 3. Single field for multiple values
 
-We believe that the above three search types should cover the vast majority of search form use cases. Let's see how these search types could work in practice.
+Next, let's dive into creating a search form. In general our markup DSL follows a simple pattern: <input name="{fieldName}(operator)" value="">.
+
+
+The following example contains markup which will generate a form having the following capabilities:
+
+* Run a contains search against the fields: StateOrProvince, City, PostalCode
+* Run a range search (ge and/or le) against ListPrice
+* Run a range search (ge) against the fields: BathroomsFull and BedroomsTotal
+* Run a multi value contains search against: ExteriorFeatures
+* Run a multi value contains search against: InteriorFeatures
+
 
 ### Search Pagination
 
