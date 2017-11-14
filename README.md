@@ -200,6 +200,10 @@ This method will return a `Craft\PaginationVariable` which is the same object re
 {% endif %}
 ```
 
+We used Bulma.io in this example, but the above markup will generate something like the following.
+
+![Pagination](screenshots/pagination.png "Pagination")
+
 ### Other Variables
 
 Aside from the `PropertiesVariable`, there are a couple of other variables you have access to in your templates.
