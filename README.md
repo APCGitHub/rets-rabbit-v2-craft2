@@ -117,6 +117,14 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 At some point your site will need to have a search form where users enter in the search criteria. We've created a markup DSL for your search HTML which will allow you to create beautiful forms for your users.
 
+#### Required Fields
+
+Your search form must have the following two inputs for it correctly search.
+
+1. `<input type="hidden" name="action" value="retsRabbit/properties/search">
+`
+2. `<input type="hidden" name="redirect" value="search/results/{searchId}">`
+
 We believe that the following three search types should cover the vast majority of search form use cases.
 
 1. Single field for a single value
