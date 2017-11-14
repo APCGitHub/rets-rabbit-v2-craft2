@@ -119,14 +119,27 @@ At some point your site will need to have a search form where users enter in the
 
 We believe that the following three search types should cover the vast majority of search form use cases.
 
-1. Multiple fields for a single value
-2. Single field for a single value
-3. Single field for multiple values
+1. Single field for a single value
+2. Single field for multiple values
+3. Multiple fields for a single value
 
-Next, let's dive into creating a search form. In general our markup DSL follows a simple pattern: 
+Next, let's dive into creating a search form. In general our markup DSL follows a simple pattern:
 
 `<input name="{fieldName}(operator)" value="">`.
 
+To create a query matching case #1 above use the following markup:
+
+```html
+<input name="StateOrProvince(eq)" value="">
+```
+
+This will create a query clause that looks like the following:
+
+```json
+$filter = StateOrProvince eq {value}
+```
+
+**Note:** By default, each input is treated as an independent {and} clause which are strung together to create a valid RESO query.
 
 The following example contains markup which will generate a form having the following capabilities:
 
@@ -135,7 +148,6 @@ The following example contains markup which will generate a form having the foll
 * Run a range search (ge) against the fields: BathroomsFull and BedroomsTotal
 * Run a multi value contains search against: ExteriorFeatures
 * Run a multi value contains search against: InteriorFeatures
-
 
 ### Search Pagination
 
