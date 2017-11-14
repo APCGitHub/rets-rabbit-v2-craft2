@@ -161,6 +161,18 @@ This will create a query clause that looks like the following:
 $filter = (contains(ExteriorFeatures, '{value1}') or (contains(ExteriorFeatures, '{value2}')))
 ```
 
+To create a query matching case #3 above, use the following markup:
+
+```html
+<input class="input" placeholder="City, State, Zip..." type="text" name="rr:StateOrProvince|City|PostalCode(contains)">
+```
+
+This will create a query clause which looks like the following:
+
+```json
+$filter = (contains(StateOrProvince, {value}) or contains(City, {value}) or contains(PostalCode, {value}))
+```
+
 **Note:** By default, each input is treated as an independent {and} clause which are strung together to create a valid RESO query.
 
 The following example contains markup which will generate a form having the following capabilities:
