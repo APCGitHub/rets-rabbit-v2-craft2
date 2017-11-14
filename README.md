@@ -127,7 +127,7 @@ Next, let's dive into creating a search form. In general our markup DSL follows 
 
 `<input name="{fieldName}(operator)" value="">`.
 
-To create a query matching case #1 above use the following markup:
+To create a query matching case #1 above, use the following markup:
 
 ```html
 <input name="StateOrProvince(eq)" value="">
@@ -137,6 +137,28 @@ This will create a query clause that looks like the following:
 
 ```json
 $filter = StateOrProvince eq {value}
+```
+
+To create a query matching case #2 above, use the following markup:
+
+```html
+{% set exteriorAmenities = ['Backyard', 'Pond', 'Garden'] %}
+
+<label class="label">Exterior Features</label>
+{% for feature in exteriorAmenities %}
+    <div class="control">
+        <label class="checkbox">
+            <input type="checkbox" name="rr:ExteriorFeatures(contains)[]" value="{{feature}}">
+            {{feature}}
+        </label>
+    </div>
+{% endfor %}
+```
+
+This will create a query clause that looks like the following:
+
+```json
+$filter = (contains(ExteriorFeatures, '{value1}') or (contains(ExteriorFeatures, '{value2}')))
 ```
 
 **Note:** By default, each input is treated as an independent {and} clause which are strung together to create a valid RESO query.
