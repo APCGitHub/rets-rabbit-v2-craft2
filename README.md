@@ -120,3 +120,13 @@ Aside from the `PropertiesVariable`, there are a couple of other variables you h
 
 * SearchesVariable - `craft.retsRabbit.searches`
 * PaginationVariable - `craft.retsRabbit.pagination`
+
+#### SearchesVariable
+
+This template variable has the following methods:
+
+1. [exists](#boolexistsint-id)
+
+#### *bool* exists(*int* $id)
+
+This method checks if a given search id exists. This method is useful for checking if a search exists before trying to execute it which will provide more predictable error handling.
