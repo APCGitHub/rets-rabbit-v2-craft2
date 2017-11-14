@@ -183,6 +183,116 @@ The following example contains markup which will generate a form having the foll
 * Run a multi value contains search against: ExteriorFeatures
 * Run a multi value contains search against: InteriorFeatures
 
+```html
+<form method="POST" action="">
+    {{getCsrfInput()}}
+    <input type="hidden" name="action" value="retsRabbit/properties/search">
+    <input type="hidden" name="redirect" value="search/results/{searchId}">
+    <div class="field">
+        <div class="control has-icons-left">
+            <input class="input" placeholder="City, State, Zip..." type="text" name="rr:StateOrProvince|City|PostalCode(contains)">
+            <span class="icon is-left">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+    </div>
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <div class="field">
+                <div class="control is-expanded">
+                    <div class="select is-fullwidth">
+                        <select name="rr:ListPrice(ge)">
+                            <option value="">Min Price</option>
+                            {% for price in range(30000, 300000, 10000) %}
+                                <option value="{{price}}">{{price | currency('USD', true)}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control is-expanded">
+                    <div class="select is-fullwidth">
+                        <select name="rr:ListPrice(le)">
+                            <option value="">Max Price</option>
+                            {% for price in range(30000, 300000, 10000) %}
+                                <option value="{{price}}">{{price | currency('USD', true)}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <div class="field">
+                <div class="control has-icons-left is-expanded">
+                    <div class="select is-fullwidth">
+                        <select name="rr:BathroomsFull(ge)">
+                            <option value>Bathrooms</option>
+                            {% for val in 0..7 %}
+                                <option value="{{val}}">{{val}}+</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <span class="icon is-left">
+                        <i class="fa fa-bath"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control has-icons-left is-expanded">
+                    <div class="select is-fullwidth">
+                        <select name="rr:BedroomsTotal(ge)">
+                            <option value>Bedrooms</option>
+                            {% for val in 0..7 %}
+                                <option value="{{val}}">{{val}}+</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <span class="icon is-left">
+                        <i class="fa fa-bed"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <div class="field">
+                <label class="label">Exterior Features</label>
+                {% for feature in exteriorAmenities %}
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="rr:ExteriorFeatures(contains)[]" value="{{feature}}">
+                            {{feature}}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="field">
+                <label class="label">Interior Features</label>
+                {% for feature in interiorAmenities %}
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="rr:InteriorFeatures(contains)[]" value="{{feature}}">
+                            {{feature}}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <button class="button is-success" type="submit">
+        <span class="icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span>{{'Submit'|t}}</span>
+    </button>
+</form>
+```
+
 ### Search Pagination
 
 Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the `PaginationVariable` to help.
