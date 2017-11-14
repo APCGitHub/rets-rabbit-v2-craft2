@@ -123,7 +123,9 @@ We believe that the following three search types should cover the vast majority 
 2. Single field for a single value
 3. Single field for multiple values
 
-Next, let's dive into creating a search form. In general our markup DSL follows a simple pattern: `<input name="{fieldName}(operator)" value="">`.
+Next, let's dive into creating a search form. In general our markup DSL follows a simple pattern: 
+
+`<input name="{fieldName}(operator)" value="">`.
 
 
 The following example contains markup which will generate a form having the following capabilities:
