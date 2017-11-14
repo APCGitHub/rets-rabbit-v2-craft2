@@ -200,7 +200,7 @@ This method will return a `Craft\PaginationVariable` which is the same object re
 {% endif %}
 ```
 
-We used Bulma.io in this example, but the above markup will generate something like the following.
+We used [Bulma.io](https://bulma.io/) in this example, but the above markup will generate something like the following.
 
 ![Pagination](screenshots/pagination.png "Pagination")
 
