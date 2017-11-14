@@ -120,7 +120,7 @@ Because the Rets Rabbit plugin fetches data from an outside data source, it's no
 
 In order to pagination your listing results from our API you must use the `PropertiesVariable` in conjunction with the `PaginationVariable`. Before we go into an example of how that works, let's check out the method signature of the `properties` function in the `PaginationVariable`.
 
-*Craft\PaginationVariable* properties(*int* $searchId, *int* $perPage = null, *string* $type = 'estimated')
+***Craft\PaginationVariable* properties(*int* $searchId, *int* $perPage = null, *string* $type = 'estimated')**
 
 **$id** - This is the same id you will pass into the search() method.
 
