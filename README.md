@@ -111,8 +111,19 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
         {# No results for the search #}
     {% endif %}
 {% endif %}
-
 ```
+
+### Search Form
+
+At some point your site will need to have a search form where users enter in the search criteria. We've created a markup DSL for your search HTML which will allow you to create beautiful forms for your users.
+
+We allow the following types of searches to be performed against your MLS's fields.
+
+1. Multiple fields for a single value
+2. Single field for a single value
+3. Single field for multiple values
+
+We believe that the above three search types should cover the vast majority of search form use cases. Let's see how these search types could work in practice.
 
 ### Search Pagination
 
