@@ -128,7 +128,77 @@ In order to pagination your listing results from our API you must use the `Prope
 
 **$type** - Specify which type of total results query you want the API to execute. Possible values are **estimated** or **exact**.
 
-This method will return a `Craft\PaginationVariable` which is the same object returned by the native `{% paginate %}` tag.
+This method will return a `Craft\PaginationVariable` which is the same object returned by the native `{% paginate %}` tag. This means you can go about creating your pagination markup the same way you normally would in Craft. Here's a complete example.
+
+```html
+{% set searchId = craft.request.getSegment(3) %}
+    
+{% if not craft.retsRabbit.searches.exists(searchId) %}
+    {% redirect '404' %}
+{% endif %}
+
+{% set perPage = 12 %}
+
+{# Notice we pass in perPage to both properties.search & pagination.properties #}
+{% set results = craft.retsRabbit.properties.search(searchId, {
+    '$top': perPage,
+    '$orderby': 'ListPrice desc'
+}, true) %}
+{% set pageInfo = craft.retsRabbit.pagination.properties(searchId, perPage, 'exact') %}
+
+{% if results is null %}
+    {# Handle error #}
+{% else %}
+    {% if results | length %}
+        {# Show the listings #}
+    {% else %}
+        {# No results for this search #}
+    {% endif %}
+{% endif %}
+
+{% if pageInfo.totalPages > 1 %}
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        {% if pageInfo.prevUrl %}
+            <a class="pagination-previous" aria-label="Previous page" href="{{pageInfo.prevUrl}}">Previous</a>
+        {% endif %}
+        {% if pageInfo.nextUrl %}
+            <a class="pagination-next" aria-label="Next page" href="{{pageInfo.nextUrl}}">Next page</a>
+        {% endif %}
+
+        <ul class="pagination-list">
+            {% if pageInfo.currentPage > 2 %}
+                <li>
+                    <a href="{{pageInfo.firstUrl}}" class="pagination-link" aria-label="Goto first page">First</a>
+                </li>
+                <li>
+                    <span class="pagination-ellipsis">&hellip;</span>
+                </li>
+            {% endif %}
+            {% for page, url in pageInfo.getPrevUrls(2) %}
+                <li>
+                    <a class="pagination-link" aria-label="Goto page {{page}}" href="{{ url }}">{{ page }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a class="pagination-link is-current" aria-label="Page {{pageInfo.currentPage}}" aria-current="page">{{pageInfo.currentPage}}</a>
+            </li>
+            {% for page, url in pageInfo.getNextUrls(2) %}
+                <li>
+                    <a class="pagination-link" href="{{ url }}" aria-label="Goto page {{page}}">{{ page }}</a>
+                </li>
+                {% endfor %}
+                {% if pageInfo.nextUrl %}
+                <li>
+                    <span class="pagination-ellipsis">&hellip;</span>
+                </li>
+                <li>
+                    <a href="{{pageInfo.lastUrl}}" class="pagination-link" aria-label="Goto last page">Last</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+```
 
 ### Other Variables
 
