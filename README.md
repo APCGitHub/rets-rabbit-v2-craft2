@@ -16,7 +16,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 1. [craft.retsRabbit.properties.find](#findint-id-object-resoparams-bool-usecache--false-int-cacheduration) - Single listing lookup
 2. [craft.retsRabbit.properties.query](#queryobject-resoparams-bool-usecache--false-int-cacheduration) - Run a raw RESO query
-3. [craft.retsRabbit.properties.search](#search) - Perform a search using a saved query from a search form.
+3. [craft.retsRabbit.properties.search](#searchint-id-object-overrides-bool-usecache--false-bool-cacheduration) - Perform a search using a saved query from a search form.
 
 ### find(*int* $id, *object* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
 
@@ -55,7 +55,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
     '$top': 12
 }) %}
 
-{% if listings is not null %}
+{% if listings is null %}
     {# An error occurred #}
 {% else %}
     {% if listings | length %}
@@ -84,3 +84,32 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 **$useCache** - Specify if you want the results cached.
 
 **$cacheDuration** - Specify how long you would like the results cached for in seconds. The default is one hour.
+
+```html
+{# Results URL (for example): /search/results/4 #}
+{% set searchId = craft.request.getSegment(3) %}
+    
+{% if not craft.retsRabbit.searches.exists(searchId) %}
+    {% redirect '404' %}
+{% endif %}
+
+{% set perPage = 12 %}
+
+{% set results = craft.retsRabbit.properties.search(searchId, {
+    '$top': perPage,
+    '$orderby': 'ListPrice desc'
+}, true) %}
+
+{% if results is null %}
+    {# An error occurred #}
+{% else %}
+    {% if results | length %}
+        {% for listing in results %}
+            {# Show listing data #}
+        {% endfor %}
+    {% else %}
+        {# No results for the search #}
+    {% endif %}
+{% endif %}
+
+```
