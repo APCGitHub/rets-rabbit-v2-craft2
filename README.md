@@ -127,7 +127,7 @@ Next, let's dive into creating a search form. In general our markup DSL follows 
 
 `<input name="{fieldName}(operator)" value="">`.
 
-To create a query matching case #1 above, use the following markup:
+#### Single Field - Single Value
 
 ```html
 <input name="StateOrProvince(eq)" value="">
@@ -139,7 +139,7 @@ This will create a query clause that looks like the following:
 $filter = StateOrProvince eq {value}
 ```
 
-To create a query matching case #2 above, use the following markup:
+#### Single Field - Multiple Values
 
 ```html
 {% set exteriorAmenities = ['Backyard', 'Pond', 'Garden'] %}
@@ -161,7 +161,7 @@ This will create a query clause that looks like the following:
 $filter = (contains(ExteriorFeatures, '{value1}') or (contains(ExteriorFeatures, '{value2}')))
 ```
 
-To create a query matching case #3 above, use the following markup:
+#### Multiple Fields - Single Value
 
 ```html
 <input class="input" placeholder="City, State, Zip..." type="text" name="rr:StateOrProvince|City|PostalCode(contains)">
