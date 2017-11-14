@@ -125,6 +125,8 @@ Your search form must have the following two inputs for it correctly search.
 `
 2. `<input type="hidden" name="redirect" value="search/results/{searchId}">`
 
+**Note:** Your `redirect` input must have the {searchId} term in it so that the controller endpoint which handles the form POST can redirect you to the results page with the saved search's id in the url.
+
 We believe that the following three search types should cover the vast majority of search form use cases.
 
 1. Single field for a single value
