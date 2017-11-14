@@ -14,9 +14,9 @@ The Rets Rabbit plugin requires at least php 5.6.
 ## Documentation
 You can interact with the Rets Rabbit API through the `PropertiesVariable` which has the following methods.
 
-1. [find](#findint-id-object-resoparams-bool-usecache--false-int-cacheduration)
-2. [query](#queryobject-resoparams-bool-usecache--false-int-cacheduration)
-3. [search](#search)
+1. [craft.retsRabbit.properties.find](#findint-id-object-resoparams-bool-usecache--false-int-cacheduration) - Single listing lookup
+2. [craft.retsRabbit.properties.query](#queryobject-resoparams-bool-usecache--false-int-cacheduration) - Run a raw RESO query
+3. [craft.retsRabbit.properties.search](#search) - Perform a search using a saved query from a search form.
 
 ### find(*int* $id, *object* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
 
@@ -31,12 +31,10 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 ```html
 {% set listing = craft.retsRabbit.properties.find('123abc', {'$select': 'ListingId, ListPrice'}, true) %}
 
-{#
-# You should check to see if listing is null which means an error occurred.
-#}
-
 {% if listing is not null %}
     {{listing.ListingId}}
+{% else %}
+    {# An error occurred, let the user know #}
 {% endif %}
 
 ```
@@ -66,6 +64,9 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
                 <div class="card-header">
                     {{listing.ListingId}}
                 </div>
+                <div class="card-content">
+                    {{listing.ListPrice}}
+                </div>
             </div>
         {% endfor %}
     {% else %}
@@ -73,3 +74,13 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
     {% endif %}
 {% endif %}
 ```
+
+### search(*int* $id, *object* $overrides, *bool* $useCache = false, *bool* $cacheDuration)
+
+**$id** - The id of the saved search parameters usually pulled from a url segment.
+
+**$overrides** - You may pass in the following RESO parameters to help tailor your query search: `$select, $orderby, $top`.
+
+**$useCache** - Specify if you want the results cached.
+
+**$cacheDuration** - Specify how long you would like the results cached for in seconds. The default is one hour.
