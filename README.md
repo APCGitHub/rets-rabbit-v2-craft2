@@ -118,7 +118,17 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the `PaginationVariable` to help.
 
-In order to pagination your listing results from our API you must use the `PropertiesVariable` in conjunction with the `PaginationVariable`.
+In order to pagination your listing results from our API you must use the `PropertiesVariable` in conjunction with the `PaginationVariable`. Before we go into an example of how that works, let's check out the method signature of the `properties` function in the `PaginationVariable`.
+
+*Craft\PaginationVariable* properties(*int* $searchId, *int* $perPage = null, *string* $type = 'estimated')
+
+**$id** - This is the same id you will pass into the search() method.
+
+**$perPage** - Control how many results you want to have per page.
+
+**$type** - Specify which type of total results query you want the API to execute. Possible values are **estimated** or **exact**.
+
+This method will return a `Craft\PaginationVariable` which is the same object returned by the native `{% paginate %}` tag.
 
 ### Other Variables
 
