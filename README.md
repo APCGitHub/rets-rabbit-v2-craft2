@@ -170,7 +170,7 @@ $filter = StateOrProvince eq {value}
 This will create a query clause that looks like the following:
 
 ```json
-$filter = (contains(ExteriorFeatures, '{value1}') or contains(ExteriorFeatures, '{value2}')))
+$filter = (contains(ExteriorFeatures, {value1}) or contains(ExteriorFeatures, {value2})))
 ```
 
 #### Multiple Fields - Single Value
@@ -186,6 +186,8 @@ $filter = (contains(StateOrProvince, {value}) or contains(City, {value}) or cont
 ```
 
 **Note:** By default, each input is treated as an independent {and} clause which are strung together to create a valid RESO query.
+
+#### Example Search Form
 
 The following example contains markup which will generate a form having the following capabilities:
 
