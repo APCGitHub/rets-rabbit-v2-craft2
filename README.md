@@ -158,7 +158,7 @@ $filter = StateOrProvince eq {value}
 This will create a query clause that looks like the following:
 
 ```json
-$filter = (contains(ExteriorFeatures, '{value1}') or (contains(ExteriorFeatures, '{value2}')))
+$filter = (contains(ExteriorFeatures, '{value1}') or contains(ExteriorFeatures, '{value2}')))
 ```
 
 #### Multiple Fields - Single Value
