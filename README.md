@@ -16,7 +16,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 1. [craft.retsRabbit.properties.find](#findint-id-object-resoparams-bool-usecache--false-int-cacheduration) - Single listing lookup
 2. [craft.retsRabbit.properties.query](#queryobject-resoparams-bool-usecache--false-int-cacheduration) - Run a raw RESO query
-3. [craft.retsRabbit.properties.search](#searchint-id-object-overrides-bool-usecache--false-bool-cacheduration) - Perform a search using a saved query from a search form.
+3. [craft.retsRabbit.properties.search](#searchint-id-object-overrides-bool-usecache--false-int-cacheduration) - Perform a search using a saved query from a search form.
 
 ### find(*int* $id, *object* $resoParams, *bool* $useCache = false, *int* $cacheDuration)
 
@@ -75,7 +75,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 {% endif %}
 ```
 
-### search(*int* $id, *object* $overrides, *bool* $useCache = false, *bool* $cacheDuration)
+### search(*int* $id, *object* $overrides, *bool* $useCache = false, *int* $cacheDuration)
 
 **$id** - The id of the saved search parameters usually pulled from a url segment.
 
@@ -113,3 +113,10 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 {% endif %}
 
 ```
+
+### Other Variables
+
+Aside from the `PropertiesVariable`, there are a couple of other variables you have access to in your templates.
+
+* SearchesVariable - `craft.retsRabbit.searches`
+* PaginationVariable - `craft.retsRabbit.pagination`
