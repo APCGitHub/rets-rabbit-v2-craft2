@@ -40,7 +40,7 @@ class RetsRabbit_PropertiesVariable
 	public function find($id = '', $resoParams = array(), $useCache = false, $cacheDuration = null)
 	{
 		$cacheKey = md5($id . serialize($resoParams));
-		$cacheKey = hash('sha256', $cacheKey);
+		$cacheKey = 'properties/' . hash('sha256', $cacheKey);
 		$data = array();
 		$error = false;
 
@@ -90,7 +90,7 @@ class RetsRabbit_PropertiesVariable
 	 */
 	public function query($params = array(), $useCache = false, $cacheDuration = null)
 	{
-		$cacheKey = hash('sha256', serialize($params));
+		$cacheKey = 'searches/' . hash('sha256', serialize($params));
 		$data = array();
 		$error = false;
 
@@ -155,7 +155,7 @@ class RetsRabbit_PropertiesVariable
 			if($currentPage > 1) {
 				$params['$skip'] = ($currentPage - 1) * $params['$top'];
 			}
-			$cacheKey = hash('sha256', serialize($params));
+			$cacheKey = 'searches/' . hash('sha256', serialize($params));
 			$data = array();
 			$error = false;
 

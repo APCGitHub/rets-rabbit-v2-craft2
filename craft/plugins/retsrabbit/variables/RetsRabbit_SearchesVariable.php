@@ -16,4 +16,9 @@ class RetsRabbit_SearchesVariable
 
 		return !is_null($search);
 	}
+
+	public function criteria()
+	{
+		return new RetsRabbit_SearchCriteriaModel;
+	}
 }

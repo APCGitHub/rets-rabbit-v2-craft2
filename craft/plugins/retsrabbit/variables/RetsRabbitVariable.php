@@ -7,8 +7,8 @@ class RetsRabbitVariable
 	/**
 	 * Call the resource variables
 	 * 
-	 * @param  $name string
-	 * @param  $arguments array
+	 * @param  string $name
+	 * @param  array $arguments
 	 * @return object
 	 */
 	public function __call($name, $arguments)

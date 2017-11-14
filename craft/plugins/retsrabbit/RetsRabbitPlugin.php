@@ -44,10 +44,21 @@ class RetsRabbitPlugin extends BasePlugin
 	{
 		require_once __DIR__ .'/vendor/autoload.php';
 
+		Craft::import('plugins.retsrabbit.helpers.RetsRabbit_SearchCriteriaModel');
+
 		$valid = craft()->retsRabbit_tokens->isValid();
 
 		if(!$valid) {
 			craft()->retsRabbit_tokens->refresh();
 		}
+	}
+
+	public function addTwigExtension()
+	{
+		Craft::import('plugins.retsrabbit.twigextensions.RetsRabbit_Paginate_TokenParser');
+		Craft::import('plugins.retsrabbit.twigextensions.RetsRabbit_Paginate_Node');
+		Craft::import('plugins.retsrabbit.twigextensions.RetsRabbit_Twig_Extension');
+
+		return new RetsRabbit_Twig_Extension;
 	}
 }
