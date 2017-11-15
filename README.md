@@ -323,7 +323,7 @@ Because the Rets Rabbit plugin fetches data from an outside data source, it's no
 
 * [searchCriteria](#searchcriteria) - An instance of `RetsRabbit_SearchCriteriaModel`
 * pageInfo - Craft\PaginationVariable just like with the native `pagination` tag
-* results - Array of results, will be null if an error occurred and an empty array if not results were found.
+* results - Array of results, will be null if an error occurred and an empty array if no results were found.
 
 #### SearchCriteria
 
@@ -421,11 +421,11 @@ Once you have an instance of the criteria model, you can build your query in a f
                     <a class="pagination-link is-current" aria-label="Page {{pageInfo.currentPage}}" aria-current="page">{{pageInfo.currentPage}}</a>
                 </li>
                 {% for page, url in pageInfo.getNextUrls(2) %}
-                    <li>
-                        <a class="pagination-link" href="{{ url }}" aria-label="Goto page {{page}}">{{ page }}</a>
-                    </li>
-                    {% endfor %}
-                    {% if pageInfo.nextUrl %}
+                <li>
+                    <a class="pagination-link" href="{{ url }}" aria-label="Goto page {{page}}">{{ page }}</a>
+                </li>
+                {% endfor %}
+                {% if pageInfo.nextUrl %}
                     <li>
                         <span class="pagination-ellipsis">&hellip;</span>
                     </li>
