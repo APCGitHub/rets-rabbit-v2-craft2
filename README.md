@@ -322,7 +322,7 @@ Because the Rets Rabbit plugin fetches data from an outside data source, it's no
 #### Parameters
 
 * [searchCriteria](#searchcriteria) - An instance of `RetsRabbit_SearchCriteriaModel`
-* pageInfo - Craft\PaginationVariable just like with the native `pagination` tag
+* pageInfo - `Craft\PaginationVariable` just like with the native `pagination` tag
 * results - Array of results, will be null if an error occurred and an empty array if no results were found.
 
 #### SearchCriteria
