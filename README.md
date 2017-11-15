@@ -319,9 +319,9 @@ Because the Rets Rabbit plugin fetches data from an outside data source, it's no
 {% rrPaginate searchCriteria as pageInfo, results %}
 ```
 
-#### rrPaginate Parameters
+#### Parameters
 
-* searchCriteria - An instance of `RetsRabbit_SearchCriteriaModel`
+* [searchCriteria](#searchcriteria) - An instance of `RetsRabbit_SearchCriteriaModel`
 * pageInfo - Craft\PaginationVariable just like with the native `pagination` tag
 * results - Array of results. Will be null if an error occurred and an empty array if not results were found.
 
