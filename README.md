@@ -313,10 +313,30 @@ We used [Bulma.io](https://bulma.io/) in this example, but the above markup will
 
 ### Search Pagination
 
-Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the a special `rrPaginate` tag which looks like the native `paginate` tag in many ways. Here's the basic way it works.
+Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the a special `rrPaginate` tag which looks like the native `paginate` tag in many ways.
 
 ```html
-{% rrPaginate {serachCriteria} as pageInfo, results %}
+{% rrPaginate {searchCriteria} as pageInfo, results %}
+```
+
+#### SearchCriteria
+
+The main difference in our `rrPaginate` tag compared to the native `paginate` tag is that it expects a `RetsRabbit_SearchCriteriaModel` as the first parameter. You can get an instance of a search criteria model in the following manner.
+
+```html
+{% set criteriaModel = craft.retsRabbit.searches.criteria() %}
+```
+
+Once you have an instance of the criteria model, you can build your query in a fluent way by chaining method calls on that `{criteriaModel}` object above.
+
+```html
+{% set criteria = criteriaModel
+    .forId(searchId)
+    .select('ListPrice', 'PublicRemarks', 'BathroomsFull', 'BedroomsTotal', 'ListingId', 'photos')
+    .orderBy('ListPrice', 'desc')
+    .limit(24) 
+    .countBy('exact')
+%}
 ```
 
 #### Search Pagination Example
