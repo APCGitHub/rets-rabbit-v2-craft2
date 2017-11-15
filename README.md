@@ -316,7 +316,7 @@ We used [Bulma.io](https://bulma.io/) in this example, but the above markup will
 Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created a special `rrPaginate` tag which looks like the native `paginate` tag in many ways.
 
 ```html
-{% rrPaginate {searchCriteria} as pageInfo, results %}
+{% rrPaginate searchCriteria as pageInfo, results %}
 ```
 
 #### SearchCriteria
