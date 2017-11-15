@@ -342,7 +342,7 @@ Once you have an instance of the criteria model, you can build your query in a f
 %}
 ```
 
-#### Search Pagination Example
+#### Complete Example
 
 ```html
 {% set searchId = craft.request.getSegment(3) %}
