@@ -330,6 +330,9 @@ The main difference in our `rrPaginate` tag compared to the native `paginate` ta
 Once you have an instance of the criteria model, you can build your query in a fluent way by chaining method calls on that `{criteriaModel}` object above.
 
 ```html
+{#
+# You must call the forId() and limit() methods for the pagination to work correctly.
+#}
 {% set criteria = criteriaModel
     .forId(searchId)
     .select('ListPrice', 'PublicRemarks', 'BathroomsFull', 'BedroomsTotal', 'ListingId', 'photos')
