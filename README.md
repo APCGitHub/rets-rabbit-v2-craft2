@@ -313,9 +313,11 @@ We used [Bulma.io](https://bulma.io/) in this example, but the above markup will
 
 ### Search Pagination
 
-Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the a special `rrPaginate` tag which looks like the native `paginate` tag in many ways.
+Because the Rets Rabbit plugin fetches data from an outside data source, it's not possible to use the native Craft pagination tag. We still believe it is very important to have the ability to paginate your results, so we created the a special `rrPaginate` tag which looks like the native `paginate` tag in many ways. Here's the basic way it works.
 
-#### TODO: More Info
+```html
+{% rrPaginate {serachCriteria} as pageInfo, results %}
+```
 
 ```html
 {% set searchId = craft.request.getSegment(3) %}
