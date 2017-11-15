@@ -127,7 +127,7 @@ Your search form must have the following two inputs.
 `
 2. `<input type="hidden" name="redirect" value="search/results/{searchId}">`
 
-**Note:** Your `redirect` input must have the {searchId} term in it so that the controller endpoint which handles the form POST can redirect you to the results page with the saved search's id in the url.
+> **Note:** Your `redirect` input must have the {searchId} term in it so that the controller endpoint which handles the form POST can redirect you to the results page with the saved search's id in the url.
 
 We believe that the following three search types should cover the vast majority of search form use cases.
 
@@ -187,7 +187,7 @@ This will create a query clause which looks like the following:
 $filter = (contains(StateOrProvince, {value}) or contains(City, {value}) or contains(PostalCode, {value}))
 ```
 
-**Note:** By default, each input is treated as an independent {and} clause which are strung together to create a valid RESO query.
+> **Note:** By default, each input is treated as an independent {and} clause which are strung together to create a valid RESO query.
 
 #### Example Search Form
 
