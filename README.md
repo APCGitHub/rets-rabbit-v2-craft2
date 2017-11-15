@@ -319,6 +319,8 @@ Because the Rets Rabbit plugin fetches data from an outside data source, it's no
 {% rrPaginate {serachCriteria} as pageInfo, results %}
 ```
 
+You can check out a full example of how to paginate search results below.
+
 ```html
 {% set searchId = craft.request.getSegment(3) %}
     
