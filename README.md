@@ -421,9 +421,9 @@ Once you have an instance of the criteria model, you can build your query in a f
                     <a class="pagination-link is-current" aria-label="Page {{pageInfo.currentPage}}" aria-current="page">{{pageInfo.currentPage}}</a>
                 </li>
                 {% for page, url in pageInfo.getNextUrls(2) %}
-                <li>
-                    <a class="pagination-link" href="{{ url }}" aria-label="Goto page {{page}}">{{ page }}</a>
-                </li>
+                    <li>
+                        <a class="pagination-link" href="{{ url }}" aria-label="Goto page {{page}}">{{ page }}</a>
+                    </li>
                 {% endfor %}
                 {% if pageInfo.nextUrl %}
                     <li>
