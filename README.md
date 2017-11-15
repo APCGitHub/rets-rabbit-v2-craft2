@@ -176,7 +176,7 @@ $filter = (contains(ExteriorFeatures, {value1}) or contains(ExteriorFeatures, {v
 #### Multiple Fields - Single Value
 
 ```html
-<input class="input" placeholder="City, State, Zip..." type="text" name="rr:StateOrProvince|City|PostalCode(contains)">
+<input name="rr:StateOrProvince|City|PostalCode(contains)" class="input" placeholder="City, State, Zip..." type="text">
 ```
 
 This will create a query clause which looks like the following:
