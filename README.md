@@ -115,7 +115,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 
 ### Search Form
 
-At some point your site will need to have a search form where users enter in the search criteria. We've created a markup DSL for your search HTML which will allow you to create beautiful forms for your users.
+At some point your site will need to have a search form where users enter in search criteria. We've created a markup DSL for your search HTML which will allow you to create beautiful forms for your users.
 
 #### Required Fields
 
