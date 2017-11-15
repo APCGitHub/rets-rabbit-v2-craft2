@@ -113,7 +113,7 @@ You can interact with the Rets Rabbit API through the `PropertiesVariable` which
 {% endif %}
 ```
 
-**Note:** If you want to paginate your search results you will need to use our special [`rrPaginate` tag](#search-pagination).
+> **Note:** If you want to paginate your search results you will need to use our special [`rrPaginate` tag](#search-pagination).
 
 ### Search Form
 
