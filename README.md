@@ -350,6 +350,17 @@ Once you have an instance of the criteria model, you can build your query in a f
 %}
 ```
 
+**Methods**
+A `RetsRabbit_SearchCriteriaModel` has the following methods available for building a paginated search query.
+
+* forId()
+* select()
+* filter()
+* limit()
+* skip()
+* orderBy()
+* countBy()
+
 #### Complete Example
 
 ```html
