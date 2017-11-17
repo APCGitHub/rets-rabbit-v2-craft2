@@ -85,6 +85,24 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 	{
 		$res = $this->resource->single($id, $params);
 
+		if($res->didFail()) {
+			$contents = $res->getResponse();
+
+			if(isset($contents['error']) && isset($contents['error']['code'])) {
+				RetsRabbitPlugin::log('A permission error occurred.', LogLevel::Error);
+				
+				$code = $contents['error']['code'];
+
+				if($code == 'permission') {
+					$success = craft()->retsRabbit_tokens->refresh();
+
+					if(!is_null($success)) {
+						$res = $this->resource->search($params);
+					}
+				}
+			}
+		}
+
 		return $res;
 	}
 }
