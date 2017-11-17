@@ -17,7 +17,7 @@ class RetsRabbit_CacheService extends BaseApplicationComponent
 	 * @param int
 	 * @param boolean
 	 */
-	public function set($id, $value, $expire, $secure = false)
+	public function set($id, $value, $expire = 3600, $secure = false)
 	{
 		$key = $this->basePath . $id;
 
@@ -25,7 +25,7 @@ class RetsRabbit_CacheService extends BaseApplicationComponent
 			$value = craft()->security->encrypt($value);
 		}
 
-		return craft()->cache->add($key, $value, $expire);
+		return craft()->cache->set($key, $value, $expire);
 	}
 
 	/**
@@ -53,6 +53,6 @@ class RetsRabbit_CacheService extends BaseApplicationComponent
 	{
 		$key = $this->basePath . $id;
 
-		return craft()->cache()->delete($key);		
+		return craft()->cache->delete($key);		
 	}
 }
