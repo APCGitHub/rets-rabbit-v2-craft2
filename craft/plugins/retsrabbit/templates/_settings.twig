@@ -1,28 +1,32 @@
 {% import "_includes/forms" as Forms %}
 
-{{ Forms.textField({
-	label: 'Client ID'|t,
-	id: 'client_id',
-	name: 'clientId',
-	instructions: 'Enter your Client ID from your Rets Rabbit dashboard',
-	value: settings.clientId,
-	errors: settings.getErrors('clientId')
-}) }}
+<div class="grid" data-cols="2">
+	<div class="item" data-colspan="1">
+		{{ Forms.textField({
+			label: 'Client ID'|t,
+			id: 'client_id',
+			name: 'clientId',
+			instructions: 'Enter your Client ID from your Rets Rabbit dashboard',
+			value: settings.clientId,
+			errors: settings.getErrors('clientId')
+		}) }}
 
-{{ Forms.textField({
-	label: 'Client Secret'|t,
-	id: 'client_secret',
-	name: 'clientSecret',
-	instructions: 'Enter your Client Secret from your Rets Rabbit dashboard',
-	value: settings.clientSecret,
-	errors: settings.getErrors('clientSecret')
-}) }}
+		{{ Forms.textField({
+			label: 'Client Secret'|t,
+			id: 'client_secret',
+			name: 'clientSecret',
+			instructions: 'Enter your Client Secret from your Rets Rabbit dashboard',
+			value: settings.clientSecret,
+			errors: settings.getErrors('clientSecret')
+		}) }}
 
-{{ Forms.textfield({
-	label: 'API Endpoint'|t,
-	id: 'api_endpoint',
-	name: 'apiEndpoint',
-	instructions: 'Override the default endpoint. Only use if you know what you are doing.',
-	value: settings.apiEndpoint,
-	errors: settings.getErrors('apiEndpoint')
-}) }}
+		{{ Forms.textfield({
+			label: 'API Endpoint'|t,
+			id: 'api_endpoint',
+			name: 'apiEndpoint',
+			instructions: 'Override the default endpoint. Only use if you know what you are doing.',
+			value: settings.apiEndpoint,
+			errors: settings.getErrors('apiEndpoint')
+		}) }}
+	</div>
+</div>
