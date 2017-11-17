@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "53f9d477e93e7a0095c305c6a2f03cf5",
-    "content-hash": "99d260d2ca9ede8b1ebc5009e2e86876",
+    "hash": "26a166342bc908a343e1c0589488e1a8",
+    "content-hash": "c633af93dcb036129c697815bc75624b",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -304,7 +304,7 @@
         },
         {
             "name": "rets-rabbit/cms-plugin-core",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
@@ -336,7 +336,7 @@
             ],
             "description": "Core logic for the Rets Rabbit CMS Plugins",
             "support": {
-                "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/master",
+                "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/v1.0.0",
                 "issues": "https://github.com/Anecka/rets-rabbit-plugin-core/issues"
             },
             "time": "2017-11-17 19:44:29"
@@ -400,9 +400,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "rets-rabbit/cms-plugin-core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
