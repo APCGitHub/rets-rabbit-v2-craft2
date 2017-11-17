@@ -99,9 +99,9 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 					$success = craft()->retsRabbit_tokens->refresh();
 
 					if(!is_null($success)) {
-						$res = $this->resource->search($params);
+						$res = $this->resource->single($id, $params);
 					} else {
-						RetsRabbitPlugin::log('Could not refresh the token during property look-up.', LogLevel::Error);
+						RetsRabbitPlugin::log('Could not refresh the token during property lookup.', LogLevel::Error);
 					}
 				}
 			}
