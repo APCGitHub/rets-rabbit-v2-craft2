@@ -24,8 +24,12 @@ class RetsRabbit_TokensService extends BaseApplicationComponent
 	{
 		$bridge = new CraftBridge;
 		$this->api = new ApiService($bridge);
-		$this->api->overrideBaseApiEndpoint('https://stage.retsrabbit.com');
 		$this->settings = craft()->plugins->getPlugin('retsRabbit')->getSettings();
+
+		//Allow developer to override base endpoint
+		if($this->settings->apiEndpoint) {
+			$this->api->overrideBaseApiEndpoint($settings->apiEndpoint);
+		}
 	}
 
 	/**
@@ -39,9 +43,9 @@ class RetsRabbit_TokensService extends BaseApplicationComponent
 
 		try {
 			$res = $this->api->getAccessToken([
-	            'client_id' => $this->settings->clientId,
-	            'client_secret' => $this->settings->clientSecret
-	        ]);
+	      		'client_id' => $this->settings->clientId,
+	      		'client_secret' => $this->settings->clientSecret
+	    	]);
 
 	        if($res->didSucceed()) {
 	            $content = $res->getResponse();
