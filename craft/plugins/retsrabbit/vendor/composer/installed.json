@@ -306,8 +306,8 @@
     },
     {
         "name": "symfony/yaml",
-        "version": "v3.3.12",
-        "version_normalized": "3.3.12.0",
+        "version": "v3.3.13",
+        "version_normalized": "3.3.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/yaml.git",
@@ -368,12 +368,12 @@
         "source": {
             "type": "git",
             "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
-            "reference": "b746c8b3c3dd338450af7fcb9a454f26e29b093c"
+            "reference": "71014b952295987264f33a4a3fd8bbe4328329b2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/b746c8b3c3dd338450af7fcb9a454f26e29b093c",
-            "reference": "b746c8b3c3dd338450af7fcb9a454f26e29b093c",
+            "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/71014b952295987264f33a4a3fd8bbe4328329b2",
+            "reference": "71014b952295987264f33a4a3fd8bbe4328329b2",
             "shasum": ""
         },
         "require": {
@@ -381,7 +381,7 @@
             "php": ">=5.6",
             "symfony/yaml": "^3.3"
         },
-        "time": "2017-11-13 20:09:17",
+        "time": "2017-11-17 19:44:29",
         "type": "library",
         "installation-source": "source",
         "autoload": {
