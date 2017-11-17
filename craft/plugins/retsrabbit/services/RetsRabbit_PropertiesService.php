@@ -69,6 +69,8 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 
 					if(!is_null($success)) {
 						$res = $this->resource->search($params);
+					} else {
+						RetsRabbitPlugin::log('Could not refresh the token during a search.', LogLevel::Error);
 					}
 				}
 			}
@@ -98,6 +100,8 @@ class RetsRabbit_PropertiesService extends BaseApplicationComponent
 
 					if(!is_null($success)) {
 						$res = $this->resource->search($params);
+					} else {
+						RetsRabbitPlugin::log('Could not refresh the token during property look-up.', LogLevel::Error);
 					}
 				}
 			}
