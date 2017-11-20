@@ -18,6 +18,10 @@ class RetsRabbit_TemplateHelper
 	 */
 	public static function paginateProperties(RetsRabbit_SearchCriteriaModel $criteria)
 	{
+		if(is_null($criteria->getSearchId())) {
+			throw new \Exception("The search id was not supplied.");
+		}
+
 		$paginateV = new PaginateVariable;
 		$currentPage = craft()->request->getPageNum();
 		$search = craft()->retsRabbit_searches->getById($criteria->getSearchId());
@@ -88,7 +92,7 @@ class RetsRabbit_TemplateHelper
 					$viewData = array();
 				} else {
 					$resources = new Collection($data, new PropertyTransformer);
-	        $viewData = $fractal->createData($resources)->toArray();
+	        		$viewData = $fractal->createData($resources)->toArray();
 				}
 			}
 

@@ -15,9 +15,9 @@ class RetsRabbit_SearchCriteriaModel
 	);
 
 	/**
-	 * @var integer
+	 * @var null
 	 */
-	private $searchId = 0;
+	private $searchId = null;
 
 	/**
 	 * @var null
