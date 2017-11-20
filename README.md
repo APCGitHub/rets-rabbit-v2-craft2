@@ -352,13 +352,11 @@ Once you have an instance of the criteria model, you can build your query in a f
 
 **Methods:** A `RetsRabbit_SearchCriteriaModel` has the following methods available for building a paginated search query.
 
-* forId()
-* select()
-* filter()
-* limit()
-* skip()
-* orderBy()
-* countBy()
+* forId($searchId) - **(required)** Pass in the search id, usually from the url
+* select(...$fields) - Pass in a list of fields you specifically want from the API
+* limit($limit) - **(required)** How many results per page
+* orderBy($field, $dir) - Order the results 
+* countBy($cacheType) - Specify the type of total results query for the API to run. Valid values are either 'exact' or 'estimated'. Uses 'estimated' by default.
 
 #### Complete Example
 
