@@ -26,8 +26,15 @@ class RetsRabbitPlugin extends BasePlugin
 
 	public function getSettingsHtml()
 	{
+		$valid = craft()->retsRabbit_tokens->isValid();
+		$canHitApi = craft()->retsRabbit_properties->search(array(
+			'$top' => 1
+		));
+
 		return craft()->templates->render('retsrabbit/_settings', array(
-           'settings' => $this->getSettings()
+           'settings' => $this->getSettings(),
+           'tokenExists' => $valid,
+           'canHitApi' => $canHitApi
        ));
 	}
 
