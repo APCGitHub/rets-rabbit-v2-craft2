@@ -1,10 +1,10 @@
 <?php
 
-namespace RetsRabbit;
+namespace Anecka\RetsRabbit\Core;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
-use RetsRabbit\Bridges\iCmsBridge;
+use Anecka\RetsRabbit\Core\Bridges\iCmsBridge;
 
 class ApiService
 {
@@ -199,7 +199,12 @@ class ApiService
 
 			$body = json_decode($res->getBody(), true);
 
-            $response->successful()->setContent($body);
+            //If 300 or above then fail the response
+            if($res->getStatusCode() > 299) {
+                $response->failed()->setContent($body);    
+            } else {
+                $response->successful()->setContent($body);
+            }
 		} catch (BadResponseException $e) {
 			$res = $e->getResponse();
             $body = $res->getBody()->getContents();

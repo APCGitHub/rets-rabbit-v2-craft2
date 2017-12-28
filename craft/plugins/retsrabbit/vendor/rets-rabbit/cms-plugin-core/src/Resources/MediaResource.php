@@ -1,6 +1,6 @@
 <?php
 
-namespace RetsRabbit\MediaResource;
+namespace Anecka\RetsRabbit\Core\MediaResource;
 
 class MediaResource extends aResource;
 {

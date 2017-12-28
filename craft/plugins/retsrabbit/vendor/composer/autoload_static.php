@@ -17,10 +17,6 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         array (
             'Symfony\\Component\\Yaml\\' => 23,
         ),
-        'R' => 
-        array (
-            'RetsRabbit\\' => 11,
-        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -39,6 +35,7 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         array (
             'Anecka\\RetsRabbit\\Transformers\\' => 31,
             'Anecka\\RetsRabbit\\Serializers\\' => 30,
+            'Anecka\\RetsRabbit\\Core\\' => 23,
         ),
     );
 
@@ -46,10 +43,6 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
-        ),
-        'RetsRabbit\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -79,9 +72,28 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         array (
             0 => __DIR__ . '/../..' . '/serializers',
         ),
+        'Anecka\\RetsRabbit\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src',
+        ),
     );
 
     public static $classMap = array (
+        'Anecka\\RetsRabbit\\Core\\ApiResponse' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/ApiResponse.php',
+        'Anecka\\RetsRabbit\\Core\\ApiService' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/ApiService.php',
+        'Anecka\\RetsRabbit\\Core\\Bridges\\CraftBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/CraftBridge.php',
+        'Anecka\\RetsRabbit\\Core\\Bridges\\EEBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/EEBridge.php',
+        'Anecka\\RetsRabbit\\Core\\Bridges\\iCmsBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/iCmsBridge.php',
+        'Anecka\\RetsRabbit\\Core\\Exceptions\\QueryException' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Exceptions/QueryException.php',
+        'Anecka\\RetsRabbit\\Core\\MediaResource\\MediaResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/MediaResource.php',
+        'Anecka\\RetsRabbit\\Core\\Query\\QueryBuilder' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryBuilder.php',
+        'Anecka\\RetsRabbit\\Core\\Query\\QueryParser' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryParser.php',
+        'Anecka\\RetsRabbit\\Core\\Query\\QueryProcessor' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryProcessor.php',
+        'Anecka\\RetsRabbit\\Core\\Resources\\OpenHousesResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/OpenHousesResource.php',
+        'Anecka\\RetsRabbit\\Core\\Resources\\PropertiesResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/PropertiesResource.php',
+        'Anecka\\RetsRabbit\\Core\\Resources\\ServersResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/ServersResource.php',
+        'Anecka\\RetsRabbit\\Core\\Resources\\aResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/aResource.php',
+        'Anecka\\RetsRabbit\\Core\\Resources\\iResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/iResource.php',
         'Anecka\\RetsRabbit\\Serializers\\RetsRabbitArraySerializer' => __DIR__ . '/../..' . '/serializers/RetsRabbitArraySerializer.php',
         'Anecka\\RetsRabbit\\Transformers\\PropertyTransformer' => __DIR__ . '/../..' . '/transforms/PropertyTransformer.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
@@ -180,21 +192,6 @@ class ComposerStaticInit44c7bd9f3aea755ebad778b54bbdd12c
         'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
         'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
         'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
-        'RetsRabbit\\ApiResponse' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/ApiResponse.php',
-        'RetsRabbit\\ApiService' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/ApiService.php',
-        'RetsRabbit\\Bridges\\CraftBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/CraftBridge.php',
-        'RetsRabbit\\Bridges\\EEBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/EEBridge.php',
-        'RetsRabbit\\Bridges\\iCmsBridge' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Bridges/iCmsBridge.php',
-        'RetsRabbit\\Exceptions\\QueryException' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Exceptions/QueryException.php',
-        'RetsRabbit\\MediaResource\\MediaResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/MediaResource.php',
-        'RetsRabbit\\Query\\QueryBuilder' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryBuilder.php',
-        'RetsRabbit\\Query\\QueryParser' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryParser.php',
-        'RetsRabbit\\Query\\QueryProcessor' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Query/QueryProcessor.php',
-        'RetsRabbit\\Resources\\OpenHousesResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/OpenHousesResource.php',
-        'RetsRabbit\\Resources\\PropertiesResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/PropertiesResource.php',
-        'RetsRabbit\\Resources\\ServersResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/ServersResource.php',
-        'RetsRabbit\\Resources\\aResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/aResource.php',
-        'RetsRabbit\\Resources\\iResource' => __DIR__ . '/..' . '/rets-rabbit/cms-plugin-core/src/Resources/iResource.php',
         'Symfony\\Component\\Yaml\\Command\\LintCommand' => __DIR__ . '/..' . '/symfony/yaml/Command/LintCommand.php',
         'Symfony\\Component\\Yaml\\Dumper' => __DIR__ . '/..' . '/symfony/yaml/Dumper.php',
         'Symfony\\Component\\Yaml\\Escaper' => __DIR__ . '/..' . '/symfony/yaml/Escaper.php',

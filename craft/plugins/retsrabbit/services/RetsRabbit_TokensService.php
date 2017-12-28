@@ -2,8 +2,8 @@
 
 namespace Craft;
 
-use RetsRabbit\ApiService;
-use RetsRabbit\Bridges\CraftBridge;
+use Anecka\RetsRabbit\Core\ApiService;
+use Anecka\RetsRabbit\Core\Bridges\CraftBridge;
 
 class RetsRabbit_TokensService extends BaseApplicationComponent
 {

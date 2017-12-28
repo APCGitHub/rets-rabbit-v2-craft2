@@ -2,7 +2,7 @@
 
 namespace Craft;
 
-use RetsRabbit\Query\QueryParser;
+use Anecka\RetsRabbit\Core\Query\QueryParser;
 
 class RetsRabbit_FormsService extends BaseApplicationComponent
 {

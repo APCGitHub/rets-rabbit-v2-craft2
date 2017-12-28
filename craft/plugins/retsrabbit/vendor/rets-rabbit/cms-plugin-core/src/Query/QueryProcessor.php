@@ -1,6 +1,6 @@
 <?php
 
-namespace RetsRabbit\Query;
+namespace Anecka\RetsRabbit\Core\Query;
 
 
 class QueryProcessor

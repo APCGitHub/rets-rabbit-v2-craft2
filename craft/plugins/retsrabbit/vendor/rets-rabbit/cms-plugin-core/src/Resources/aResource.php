@@ -1,8 +1,8 @@
 <?php
 
-namespace RetsRabbit\Resources;
+namespace Anecka\RetsRabbit\Core\Resources;
 
-use RetsRabbit\ApiService;
+use Anecka\RetsRabbit\Core\ApiService;
 
 abstract class aResource implements iResource
 {

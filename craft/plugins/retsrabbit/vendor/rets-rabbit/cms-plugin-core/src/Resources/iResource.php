@@ -1,6 +1,6 @@
 <?php
 
-namespace RetsRabbit\Resources;
+namespace Anecka\RetsRabbit\Core\Resources;
 
 interface iResource
 {

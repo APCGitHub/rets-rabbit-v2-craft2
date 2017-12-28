@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
-    'RetsRabbit\\' => array($vendorDir . '/rets-rabbit/cms-plugin-core/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
@@ -15,4 +14,5 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Anecka\\RetsRabbit\\Transformers\\' => array($baseDir . '/transforms'),
     'Anecka\\RetsRabbit\\Serializers\\' => array($baseDir . '/serializers'),
+    'Anecka\\RetsRabbit\\Core\\' => array($vendorDir . '/rets-rabbit/cms-plugin-core/src'),
 );

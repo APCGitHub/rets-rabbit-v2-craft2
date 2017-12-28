@@ -1,6 +1,6 @@
 <?php
 
-namespace RetsRabbit;
+namespace Anecka\RetsRabbit\Core;
 
 class ApiResponse
 {

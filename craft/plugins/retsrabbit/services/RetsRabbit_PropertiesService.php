@@ -2,9 +2,9 @@
 
 namespace Craft;
 
-use RetsRabbit\ApiService;
-use RetsRabbit\Bridges\CraftBridge;
-use RetsRabbit\Resources\PropertiesResource;
+use Anecka\RetsRabbit\Core\ApiService;
+use Anecka\RetsRabbit\Core\Bridges\CraftBridge;
+use Anecka\RetsRabbit\Core\Resources\PropertiesResource;
 
 class RetsRabbit_PropertiesService extends BaseApplicationComponent
 {

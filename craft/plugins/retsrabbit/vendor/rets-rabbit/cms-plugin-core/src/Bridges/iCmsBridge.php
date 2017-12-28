@@ -1,6 +1,6 @@
 <?php
 
-namespace RetsRabbit\Bridges;
+namespace Anecka\RetsRabbit\Core\Bridges;
 
 interface iCmsBridge
 {
