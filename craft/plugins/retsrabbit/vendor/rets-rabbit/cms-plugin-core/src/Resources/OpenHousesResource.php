@@ -13,7 +13,7 @@ class OpenHousesResource extends aResource
      */
     public function singe($id, $params = array())
     {
-        $url = $this->api->buildApiUrl("/open-house($id)");
+        $url = $this->api->buildApiUrl("/open-house('$id')");
 
         return $this->api->getRequest($url, $params, true);
     }

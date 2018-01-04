@@ -13,7 +13,7 @@ class PropertiesResource extends aResource
      */
     public function single($id, $params = array())
     {
-        $url = $this->api->buildApiUrl("/property($id)");
+        $url = $this->api->buildApiUrl("/property('$id')");
 
         return $this->api->getRequest($url, $params, true);
     }
