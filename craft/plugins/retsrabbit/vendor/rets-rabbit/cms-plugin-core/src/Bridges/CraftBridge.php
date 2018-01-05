@@ -2,8 +2,6 @@
 
 namespace Anecka\RetsRabbit\Core\Bridges;
 
-use Craft\Craft;
-
 class CraftBridge implements iCmsBridge
 {
     /**
@@ -31,8 +29,15 @@ class CraftBridge implements iCmsBridge
      */
     public function __construct()
     {
-        $this->app = Craft::app();
-        $this->settings = $this->app->plugins->getPlugin('retsRabbit')->getSettings();
+        if(class_exists('\\Craft\\Craft')) {
+            //v2
+            $this->app = \Craft\Craft::app();
+            $this->settings = $this->app->plugins->getPlugin('retsRabbit')->getSettings();
+        } else if(class_exists('\\Craft')){
+            //v3
+            $this->app = \Craft::$app;
+            $this->settings = \anecka\retsrabbit\RetsRabbit::$plugin->getSettings();
+        }
     }
 
     /**

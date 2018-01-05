@@ -304,16 +304,16 @@
         },
         {
             "name": "rets-rabbit/cms-plugin-core",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Anecka/rets-rabbit-plugin-core.git",
-                "reference": "8f7cf083dc5ea0de989fb8566db204ffe8d82428"
+                "reference": "02d05094c132c4e7d3741d479222e7be1cf58e04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/8f7cf083dc5ea0de989fb8566db204ffe8d82428",
-                "reference": "8f7cf083dc5ea0de989fb8566db204ffe8d82428",
+                "url": "https://api.github.com/repos/Anecka/rets-rabbit-plugin-core/zipball/02d05094c132c4e7d3741d479222e7be1cf58e04",
+                "reference": "02d05094c132c4e7d3741d479222e7be1cf58e04",
                 "shasum": ""
             },
             "require": {
@@ -344,23 +344,23 @@
             ],
             "description": "Core logic for the Rets Rabbit CMS Plugins",
             "support": {
-                "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/v1.0.7",
+                "source": "https://github.com/Anecka/rets-rabbit-plugin-core/tree/v1.0.8",
                 "issues": "https://github.com/Anecka/rets-rabbit-plugin-core/issues"
             },
-            "time": "2018-01-03 15:48:20"
+            "time": "2018-01-05 15:26:45"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.2",
+            "version": "v3.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536"
+                "reference": "25c192f25721a74084272671f658797d9e0e0146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/afe0cd38486505c9703707707d91450cfc1bd536",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/25c192f25721a74084272671f658797d9e0e0146",
+                "reference": "25c192f25721a74084272671f658797d9e0e0146",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +405,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-11 20:38:23"
+            "time": "2018-01-03 07:37:34"
         }
     ],
     "packages-dev": [],
